@@ -1,0 +1,47 @@
+# Unity
+.DS_Store
+*.meta
+*.pid
+*.unityproj
+*.suo
+*.user
+*.userprefs
+*.csproj
+*.vspscc
+*.vssscc
+*.sln
+*.VCproj
+*.dbmdl
+*.booproj
+
+# Build files
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+
+# macOS
+.DS_Store
+
+# Package Manager
+Packages/manifest.json.meta
+Packages/packages-lock.json.meta
+
+# Asset Store
+AssetStoreTools/
+
+# Crashlytics
+Crashlytics/
+
+# Local settings
+ProjectSettings/ProjectSettings.asset
+
+# Optional: Ignore specific files you don't want to track
+# For example, if you have a local test scene you don't want to share
+# Assets/Scenes/MyTestScene.unity
