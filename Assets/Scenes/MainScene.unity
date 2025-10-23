@@ -128,9 +128,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 105225983}
+  - component: {fileID: 105225986}
   - component: {fileID: 105225982}
   - component: {fileID: 105225985}
-  - component: {fileID: 105225986}
   - component: {fileID: 105225984}
   m_Layer: 0
   m_Name: mainCharacter
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc140909ececb0418e1ed6e1566b54e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mSpeed: 15
+  mSpeed: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
