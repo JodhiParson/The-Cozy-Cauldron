@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = movement * mSpeed;
         animator.SetFloat(horizontal, movement.x);
         animator.SetFloat(vertical, movement.y);
+        animator.speed = mSpeed / 15f;
 
         if (movement != Vector2.zero)
         {
