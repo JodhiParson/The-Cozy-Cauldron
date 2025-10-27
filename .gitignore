@@ -22,6 +22,7 @@
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
+UserSettings/
 
 # Visual Studio / Rider
 .vs/
