@@ -1,5 +1,6 @@
 # Unity
 .DS_Store
+*.meta
 *.pid
 *.unityproj
 *.suo
