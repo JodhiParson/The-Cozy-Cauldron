@@ -24,11 +24,11 @@ public class InputManager : MonoBehaviour
         if (isSprinting)
         {
             
-            pMove.mSpeed = 20f;
+            pMove.mSpeed = 30f;
         }
         else
         {
-            pMove.mSpeed = 15f;
+            pMove.mSpeed = 20f;
         }
     }
 }
