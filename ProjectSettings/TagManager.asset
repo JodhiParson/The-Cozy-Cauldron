@@ -44,8 +44,11 @@ TagManager:
   - name: Ground
     uniqueID: 3358842819
     locked: 0
-  - name: Ground 2
+  - name: Ground 2 wall
     uniqueID: 56601821
+    locked: 0
+  - name: Ground 2 floor
+    uniqueID: 1929642703
     locked: 0
   - name: Trees
     uniqueID: 4234011025
