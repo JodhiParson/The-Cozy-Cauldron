@@ -1,22 +1,40 @@
+using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
-public class Spawner : MonoBehaviour 
+public class Spawner : MonoBehaviour
 {
-    public GameObject slime;
-    public Transform spawnPoint;
+    public List<GameObject> mob;
+    public SpriteRenderer spawnArea;
     public int spawnCount;
+    public float respawnTime;
 
     void Start()
     {
         SpawnEnemies();
     }
-
+    private IEnumerator SpawnLoop()
+    {
+        while (true)
+        {
+            SpawnEnemies();
+            yield return new WaitForSeconds(respawnTime);
+        }
+    }
     private void SpawnEnemies()
     {
-                for (int i = 0; i < spawnCount; i++)
+        if (mob == null || spawnArea == null) return;
+
+        Bounds bounds = spawnArea.bounds;
+
+        for (int i = 0; i < spawnCount; i++)
         {
-            Vector2 randomPos = GetRandomPosition();
-            GameObject enemy = Instantiate(enemyPrefab, randomPos, Quaternion.identity);
+            GameObject prefab = mob[Random.Range(0, mob.Count)];
+            float randX = Random.Range(bounds.min.x, bounds.max.x);
+            float randY = Random.Range(bounds.min.y, bounds.max.y);
+            Vector2 spawnPos = new Vector2(randX, randY);
+
+            Instantiate(prefab, spawnPos, Quaternion.identity);
         }
     }
 }

@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2253911629886400664, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       propertyPath: m_Name
-      value: tomato-slime
+      value: tomato-slime-prefab
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       propertyPath: m_FlipX
@@ -119,8 +119,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
+  m_Mass: 11
+  m_LinearDamping: 10
   m_AngularDamping: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
