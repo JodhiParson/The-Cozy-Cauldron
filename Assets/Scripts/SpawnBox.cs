@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     public SpriteRenderer spawnArea;
     public int spawnCount;
     public float respawnTime;
+    public float maxSpawn;
 
     void Start()
     {
@@ -17,7 +18,12 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            SpawnEnemies();
+            int currentEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+            if (currentEnemies < maxSpawn)
+            {
+                SpawnEnemies();
+            }
             yield return new WaitForSeconds(respawnTime);
         }
     }
@@ -29,6 +35,8 @@ public class Spawner : MonoBehaviour
 
         for (int i = 0; i < spawnCount; i++)
         {
+            if (GameObject.FindGameObjectsWithTag("Enemy").Length >= maxSpawn)
+            break;
             GameObject prefab = mob[Random.Range(0, mob.Count)];
             float randX = Random.Range(bounds.min.x, bounds.max.x);
             float randY = Random.Range(bounds.min.y, bounds.max.y);
