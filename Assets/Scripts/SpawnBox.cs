@@ -11,7 +11,7 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        SpawnEnemies();
+        StartCoroutine(SpawnLoop());
     }
     private IEnumerator SpawnLoop()
     {
