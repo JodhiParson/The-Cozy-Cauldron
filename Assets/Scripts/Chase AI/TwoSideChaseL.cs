@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TwoSideChase : MonoBehaviour
+public class TwoSideChaseL : MonoBehaviour
 {
     private GameObject target;
     public float speed;
