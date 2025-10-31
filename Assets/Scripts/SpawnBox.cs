@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < spawnCount; i++)
         {
             if (GameObject.FindGameObjectsWithTag("Enemy").Length >= maxSpawn)
-            break;
+                break;
             GameObject prefab = mob[Random.Range(0, mob.Count)];
             float randX = Random.Range(bounds.min.x, bounds.max.x);
             float randY = Random.Range(bounds.min.y, bounds.max.y);
@@ -44,5 +44,6 @@ public class Spawner : MonoBehaviour
 
             Instantiate(prefab, spawnPos, Quaternion.identity);
         }
+        
     }
 }
