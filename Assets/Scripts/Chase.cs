@@ -27,5 +27,6 @@ public class Chase : MonoBehaviour
             animator.SetBool("isIdle", false);
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
         }
+ 
     }
 }
