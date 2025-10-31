@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: aeaab4c8a0eafc249ab959f8f2cdfdf4, type: 2}
     - target: {fileID: 3626916397498700004, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       propertyPath: m_FlipX
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       propertyPath: m_SortingLayer
@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1047654803
+      value: -588966989
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       propertyPath: m_LocalScale.x
@@ -247,5 +247,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0872504, y: 1.5577495}
-  m_Radius: 1.5765018
+  m_Offset: {x: -0.0942518, y: 1.4834983}
+  m_Radius: 1.205248
