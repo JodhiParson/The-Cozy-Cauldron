@@ -31,5 +31,8 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat(lastVertical, movement.y);
         }
     }
-
+    public void TriggerAttack()
+    {
+        animator.SetTrigger("Attack");
+    }
 }

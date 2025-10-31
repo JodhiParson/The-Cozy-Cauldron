@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
     private InputAction Sprint;
     private PlayerInput playerInput;
     private InputAction moveAction;
+    private InputAction attack;
     [SerializeField] private PlayerMovement pMove;
 
     public void Start()
@@ -14,6 +15,7 @@ public class InputManager : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
         Sprint = playerInput.actions["Sprint"];
+        attack = playerInput.actions["Attack"];
     }
 
     private void Update()
@@ -23,12 +25,18 @@ public class InputManager : MonoBehaviour
 
         if (isSprinting)
         {
-            
+
             pMove.mSpeed = 30f;
         }
         else
         {
             pMove.mSpeed = 20f;
+        }
+
+        bool isAttacking = attack != null && attack.IsPressed();
+        if (isAttacking)
+        {
+            pMove.TriggerAttack();
         }
     }
 }
