@@ -9,17 +9,13 @@ public class TwoSideChaseR : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Vector2 movement;
     private Vector2 lastMoveDir;
-    private RoamLeft roamLeft;
-
     private const string isIdle = "isIdle";
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        target = GameObject.FindGameObjectWithTag("Player");
-        roamLeft = GetComponent<RoamLeft>();
-        StartCoroutine(roamLeft.RoamRoutine());
+        target = GameObject.FindGameObjectWithTag("PlayerHitbox");        
     }
         private void Update()
     {
