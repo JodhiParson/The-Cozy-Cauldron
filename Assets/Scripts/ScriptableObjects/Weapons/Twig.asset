@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c669ba938bd2fe4aa1e23e59b30ef3d, type: 3}
+  m_Name: Twig
+  m_EditorClassIdentifier: 
+  itemName: Twig
+  icon: {fileID: 5055330669412280949, guid: 26ac404b4275f6740b12b5aca372679b, type: 3}
+  description: A twig
+  itemType: 0
+  damage: 5
+  attackSpeed: 1.5
+  weaponPrefab: {fileID: 2219149242224787504, guid: f670a66d101016c4ba848b55c6044fca, type: 3}
