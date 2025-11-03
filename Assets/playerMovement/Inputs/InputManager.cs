@@ -33,8 +33,8 @@ public class InputManager : MonoBehaviour
             pMove.mSpeed = 20f;
         }
 
-        bool isAttacking = attack != null && attack.IsPressed();
-        if (isAttacking)
+        bool isAttacking = attack != null && attack.WasPressedThisFrame();
+        if (isAttacking && Movement == Vector2.zero)
         {
             pMove.TriggerAttack();
         }
