@@ -90,9 +90,15 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       insertIndex: 2
-      addedObject: {fileID: 3674528441776471677}
+      addedObject: {fileID: 7922154553170606147}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       insertIndex: 3
+      addedObject: {fileID: -4532996625859262756}
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: -9064840904362217725}
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
+      insertIndex: 5
       addedObject: {fileID: 7685105504554566298}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       insertIndex: -1
@@ -109,7 +115,40 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
   m_PrefabInstance: {fileID: 5718686679412438422}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3674528441776471677
+--- !u!114 &7922154553170606147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3451063998594491134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c1a8f40d114244eb824199cecedc2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  health: 10
+  OnHitWithReference:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -9064840904362217725}
+        m_TargetAssemblyTypeName: Knockback, Assembly-CSharp
+        m_MethodName: PlayFeedBack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDeathWithReference:
+    m_PersistentCalls:
+      m_Calls: []
+  isDead: 0
+--- !u!114 &-4532996625859262756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,10 +160,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91db2431863d86b4387811b5b0f074d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
   damage: 1
-  playerHealth: {fileID: 0}
-  dmgCooldown: 0
+  timeBetweenHits: 1
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 2048
+--- !u!114 &-9064840904362217725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3451063998594491134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ae0883debc3144289517c5e0e42419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2d: {fileID: 0}
+  strength: 16
+  delay: 0.15
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDone:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7685105504554566298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +209,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3451063998594491134}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -201,7 +262,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0625, y: 1.5}
+  m_Offset: {x: -0.06950152, y: 1.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.47619048, y: -0.25}
@@ -211,7 +272,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.625, y: 2}
+  m_Size: {x: 2.6250002, y: 2}
   m_EdgeRadius: 0
 --- !u!58 &8850958423741098150
 CircleCollider2D:
@@ -243,7 +304,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
