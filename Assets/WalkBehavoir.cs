@@ -28,7 +28,20 @@ public class WalkBehavoir : StateMachineBehaviour
         }
 
         Vector2 target = new Vector2(playerPos.position.x, playerPos.position.y);
-        animator.transform.position = Vector2.MoveTowards(animator.transform.position, target, speed*Time.deltaTime);
+        animator.transform.position = Vector2.MoveTowards(animator.transform.position, target, speed * Time.deltaTime);
+
+        Vector2 scale = animator.transform.localScale;
+        if (playerPos.position.x < animator.transform.position.x)
+        {
+            scale.x = Mathf.Abs(scale.x);            
+        }
+
+        else
+        {
+            scale.x = -Mathf.Abs(scale.x);            
+        }
+
+            animator.transform.localScale = scale;
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

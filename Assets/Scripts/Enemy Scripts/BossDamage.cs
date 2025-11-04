@@ -4,46 +4,23 @@ using UnityEngine;
 public class BossDamage : MonoBehaviour
 {
     [Header("Damage Settings")]
-    public int damage;
+    public int damage = 10;
     public float timeBetweenHits = 1.5f;
     public GameObject hitbox;
     public LayerMask targetLayers;
 
     private float hitCooldown;
-    private Collider2D targetInRange;
+
     private void Start()
     {
-        hitbox.SetActive(false);
-    }
-    private void Update()
-    {
-        if (hitCooldown > 0)
-            hitCooldown -= Time.deltaTime;
-
-        if (targetInRange != null && hitCooldown <= 0)
-        {
-            TryDealDamage(targetInRange);
-        }
+        if (hitbox != null)
+            hitbox.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void ProcessHit(Collider2D other)
     {
-        if (IsInTargetLayer(other.gameObject))
-        {
-            targetInRange = other;
-            TryDealDamage(other);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other == targetInRange)
-            targetInRange = null;
-    }
-
-    private void TryDealDamage(Collider2D other)
-    {
-        if (hitCooldown > 0 || other == null) return;
+        if (!IsInTargetLayer(other.gameObject)) return;
+        if (hitCooldown > 0) return;
 
         Health targetHealth = other.GetComponentInParent<Health>();
         if (targetHealth != null)
@@ -52,14 +29,16 @@ public class BossDamage : MonoBehaviour
             hitCooldown = timeBetweenHits;
         }
     }
-    public void EnableHitBox()
+
+    private void Update()
     {
-        hitbox.SetActive(true);
+        if (hitCooldown > 0)
+            hitCooldown -= Time.deltaTime;
     }
-    public void DisableHitbox()
-    {
-        hitbox.SetActive(false);
-    }
+
+    public void EnableHitBox() => hitbox?.SetActive(true);
+    public void DisableHitbox() => hitbox?.SetActive(false);
+
     private bool IsInTargetLayer(GameObject obj)
     {
         return (targetLayers.value & (1 << obj.layer)) != 0;
