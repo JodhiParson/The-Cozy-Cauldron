@@ -15,7 +15,6 @@ public class Health : MonoBehaviour
     {
         health = healthValue;
         maxHealth = healthValue;
-        health = maxHealth;
         isDead = false;
     }
     public void Update()
