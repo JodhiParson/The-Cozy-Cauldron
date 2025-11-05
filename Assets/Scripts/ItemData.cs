@@ -12,4 +12,5 @@ public abstract class ItemData : ScriptableObject
     public Sprite icon;
     [TextArea] public string description;
     public ItemType itemType;
+    public int attackPower;
 }
