@@ -30,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       propertyPath: m_SortingLayerID
-      value: -588966989
+      value: 1047654803
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       propertyPath: m_LocalScale.x
@@ -93,12 +93,15 @@ PrefabInstance:
       addedObject: {fileID: 7922154553170606147}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       insertIndex: 3
-      addedObject: {fileID: -4532996625859262756}
+      addedObject: {fileID: 5312049404027163400}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       insertIndex: 4
-      addedObject: {fileID: -9064840904362217725}
+      addedObject: {fileID: -4532996625859262756}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       insertIndex: 5
+      addedObject: {fileID: -9064840904362217725}
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
+      insertIndex: 6
       addedObject: {fileID: 7685105504554566298}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       insertIndex: -1
@@ -148,6 +151,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   isDead: 0
+--- !u!114 &5312049404027163400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3451063998594491134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcdaef425f59da840ab59be0798b0698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossRenderer: {fileID: 9009941450209748338}
 --- !u!114 &-4532996625859262756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,15 +193,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ae0883debc3144289517c5e0e42419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb2d: {fileID: 0}
+  rb2d: {fileID: 1012354106725802555}
   strength: 25
   delay: 0.15
   OnBegin:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7685105504554566298}
+        m_TargetAssemblyTypeName: TwoSideChaseL, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDone:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7685105504554566298}
+        m_TargetAssemblyTypeName: TwoSideChaseL, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &7685105504554566298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,3 +350,8 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.0942518, y: 1.4834983}
   m_Radius: 1.205248
+--- !u!212 &9009941450209748338 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3626916397498700004, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
+  m_PrefabInstance: {fileID: 5718686679412438422}
+  m_PrefabAsset: {fileID: 0}

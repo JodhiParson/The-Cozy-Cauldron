@@ -31,10 +31,10 @@ public class Audio_Play : MonoBehaviour
     private void UpdateUI()
     {
         if (musicText != null)
-            musicText.text = $"{Mathf.RoundToInt(musicVolume * 10f)}";
+            musicText.text = $"{Mathf.RoundToInt(musicVolume * 5f)}";
 
         if (soundText != null)
-            soundText.text = $"{Mathf.RoundToInt(sfxVolume * 10f)}";
+            soundText.text = $"{Mathf.RoundToInt(sfxVolume * 5f)}";
     }
 
     private void Update()
