@@ -14,7 +14,7 @@ public class Audio_Play : MonoBehaviour
 
     [Header("Volume Settings")]
     [Range(0f, 1f)] public float musicVolume = 1f;
-    [Range(0f, .5f)] public float sfxVolume = .5f;
+    [Range(0f, 1f)] public float sfxVolume = 1f;
 
     [Header("Audio Text")]
     public TMP_Text musicText;
@@ -22,14 +22,12 @@ public class Audio_Play : MonoBehaviour
 
     private void Start()
     {
-        // Initialize AudioSources
         if (musicSource != null) musicSource.volume = musicVolume;
         if (sfxSource != null) sfxSource.volume = sfxVolume;
 
         UpdateUI();
     }
 
-    // Update the on-screen volume text
     private void UpdateUI()
     {
         if (musicText != null)
@@ -44,8 +42,6 @@ public class Audio_Play : MonoBehaviour
         musicSlider.value = musicVolume;
         sfxSlider.value = sfxVolume;
     }
-
-    // Play sound effect
     public void PlaySound()
     {
         if (sfxSource != null)
@@ -56,43 +52,17 @@ public class Audio_Play : MonoBehaviour
         if (sfxSource1 != null)
             sfxSource1.Play();
     }
-    // 🎚️ Decrease Music Volume
-    public void DecreaseMusicVolume(float amount = 0.1f)
+    public void SetMusicVol(float volume)
     {
-        musicVolume = Mathf.Clamp01(musicVolume - amount);
+        musicVolume = Mathf.Clamp01(volume);
         if (musicSource != null) musicSource.volume = musicVolume;
-        Debug.Log($"Music volume decreased: {musicVolume}");
         UpdateUI();
     }
-
-    // 🎚️ Increase Music Volume
-    public void IncreaseMusicVolume(float amount = 0.1f)
+    public void SetSFXVolume(float volume)
     {
-        musicVolume = Mathf.Clamp01(musicVolume + amount);
-        if (musicSource != null) musicSource.volume = musicVolume;
-        Debug.Log($"Music volume increased: {musicVolume}");
-        UpdateUI();
-    }
-
-    // 🔉 Decrease SFX Volume
-    public void DecreaseSFXVolume(float amount = 0.05f)
-    {
-        sfxVolume = Mathf.Clamp01(sfxVolume - amount);
+        sfxVolume = Mathf.Clamp01(volume);
         if (sfxSource != null) sfxSource.volume = sfxVolume;
         if (sfxSource1 != null) sfxSource1.volume = sfxVolume;
-        
-        // Debug.Log($"SFX volume decreased: {sfxVolume}");
-        UpdateUI();
-    }
-
-    // 🔉 Increase SFX Volume
-    public void IncreaseSFXVolume(float amount = 0.05f)
-    {
-        sfxVolume = Mathf.Clamp01(sfxVolume + amount);
-        if (sfxSource != null) sfxSource.volume = sfxVolume;
-        if (sfxSource1 != null) sfxSource1.volume = sfxVolume;
-
-        // Debug.Log($"SFX volume increased: {sfxVolume}");
         UpdateUI();
     }
 }
