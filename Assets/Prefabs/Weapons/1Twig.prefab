@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5384834903284174403}
   - component: {fileID: 9102269511289728351}
   - component: {fileID: 1898873074326892766}
+  - component: {fileID: -7447669544476012291}
   m_Layer: 0
   m_Name: 1Twig
   m_TagString: Untagged
@@ -103,3 +104,15 @@ MonoBehaviour:
   weaponName: Twig
   damage: 5
   attackSpeed: 1.5
+--- !u!225 &-7447669544476012291
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2219149242224787504}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
