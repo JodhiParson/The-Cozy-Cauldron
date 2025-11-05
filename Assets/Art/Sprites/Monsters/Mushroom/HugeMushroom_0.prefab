@@ -315,8 +315,8 @@ GameObject:
   - component: {fileID: 5697253821189925384}
   - component: {fileID: 9100869543198748176}
   - component: {fileID: 5144017243970361827}
-  - component: {fileID: 8739108256048317822}
   - component: {fileID: 4440416346364785521}
+  - component: {fileID: 8739108256048317822}
   - component: {fileID: 7570396688633148974}
   - component: {fileID: 9160971534054158333}
   - component: {fileID: 6252120893152052963}
@@ -384,6 +384,19 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 2048
+--- !u!114 &4440416346364785521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5661583193153777382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcdaef425f59da840ab59be0798b0698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossRenderer: {fileID: 8739108256048317822}
 --- !u!212 &8739108256048317822
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -439,19 +452,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4440416346364785521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5661583193153777382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcdaef425f59da840ab59be0798b0698, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossRenderer: {fileID: 8739108256048317822}
 --- !u!95 &7570396688633148974
 Animator:
   serializedVersion: 7

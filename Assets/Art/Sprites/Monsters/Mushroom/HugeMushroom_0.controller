@@ -207,7 +207,7 @@ MonoBehaviour:
   timer: 0
   minTime: 2
   maxTime: 5
-  speed: 15
+  speed: 10
 --- !u!1102 &-2958647267529944334
 AnimatorState:
   serializedVersion: 6
