@@ -14,6 +14,7 @@ public class SwordControllerPlayerDir : MonoBehaviour
 
     private bool swinging = false;
     private SpriteRenderer sr;
+    private Collider2D swordCollider;
     private Vector2 lastDirection = Vector2.down; 
 
     void Awake()
@@ -22,14 +23,15 @@ public class SwordControllerPlayerDir : MonoBehaviour
         if (sr == null)
             sr = GetComponentInChildren<SpriteRenderer>();
 
+        swordCollider = GetComponent<Collider2D>();
+        if (swordCollider == null)
+            swordCollider = GetComponentInChildren<Collider2D>();
+
         if (sr != null)
             sr.enabled = false; // hide sword initially
-    }
 
-    void Start()
-    {
-        if (sr != null)
-            sr.enabled = false; // extra safety
+        if (swordCollider != null)
+            swordCollider.enabled = false; // disable collider initially
     }
 
     void Update()
@@ -71,8 +73,8 @@ public class SwordControllerPlayerDir : MonoBehaviour
     {
         swinging = true;
         if (sr != null) sr.enabled = true;
+        if (swordCollider != null) swordCollider.enabled = true; // ✅ enable collider when swinging
 
-        // Flip the swing: startZ > endZ, subtract step instead of adding
         float startZ = transform.eulerAngles.z + swingAngle / 2f;
         float endZ = transform.eulerAngles.z - swingAngle / 2f;
         float angle = startZ;
@@ -80,7 +82,7 @@ public class SwordControllerPlayerDir : MonoBehaviour
         while (angle > endZ)
         {
             float step = swingSpeed * Time.deltaTime;
-            angle -= step; // subtract instead of add
+            angle -= step;
             transform.rotation = Quaternion.Euler(0, 0, angle);
 
             Vector3 dir;
@@ -95,6 +97,7 @@ public class SwordControllerPlayerDir : MonoBehaviour
         }
 
         if (sr != null) sr.enabled = false;
+        if (swordCollider != null) swordCollider.enabled = false; // ✅ disable collider after swing
         swinging = false;
     }
 }
