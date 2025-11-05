@@ -7,6 +7,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     Transform originalParent;
     CanvasGroup canvas;
 
+    public ItemData itemData; // ⬅️ reference to the data
+
     private void Awake()
     {
         canvas = GetComponentInParent<CanvasGroup>();
@@ -55,5 +57,12 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
 
         GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+    }
+     public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            EquipmentManager.instance.Equip(this);
+        }
     }
 }
