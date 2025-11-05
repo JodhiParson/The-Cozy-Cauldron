@@ -13,7 +13,7 @@ public class Audio_Play : MonoBehaviour
     public Slider sfxSlider;
 
     [Header("Volume Settings")]
-    [Range(0f, 1f)] public float musicVolume = 1f;
+    [Range(0f, 1f)] public float musicVolume = .3f;
     [Range(0f, 1f)] public float sfxVolume = 1f;
 
     [Header("Audio Text")]
