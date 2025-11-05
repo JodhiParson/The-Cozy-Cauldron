@@ -16,6 +16,7 @@ public class BossHealth : MonoBehaviour
         health = healthValue;
         maxHealth = healthValue;
         isDead = false;
+        Debug.Log("health initialized!");
     }
 
     public void Update()
@@ -29,7 +30,10 @@ public class BossHealth : MonoBehaviour
         if (sender.layer == gameObject.layer)
             return;
 
+        Debug.Log("took damage!");
         health -= amount;
+        Debug.Log("hp" + health);
+
 
         if (health > 0)
         {

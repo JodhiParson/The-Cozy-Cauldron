@@ -217,7 +217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: 8a62cd845fbd05d4a86960154f9ccc6a, type: 3}
       propertyPath: m_TagString
@@ -338,8 +338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c1a8f40d114244eb824199cecedc2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  health: 10
+  maxHealth: 5
+  health: 5
   OnHitWithReference:
     m_PersistentCalls:
       m_Calls:
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91db2431863d86b4387811b5b0f074d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 10
   timeBetweenHits: 1
   targetLayers:
     serializedVersion: 2
@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 1012354106725802555}
-  strength: 25
+  strength: 20
   delay: 0.15
   OnBegin:
     m_PersistentCalls:
@@ -461,7 +461,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 11
+  m_Mass: 10
   m_LinearDamping: 10
   m_AngularDamping: 0
   m_GravityScale: 0
