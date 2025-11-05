@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: -3295029114720785564}
   - component: {fileID: -1517310637061176752}
   - component: {fileID: 7168783518875678559}
-  - component: {fileID: 7984019760544513418}
   - component: {fileID: 1034775231455333998}
   - component: {fileID: 4316517466472190262}
   - component: {fileID: 7740063412028495696}
@@ -56,7 +55,19 @@ MonoBehaviour:
   health: 10
   OnHitWithReference:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -1517310637061176752}
+        m_TargetAssemblyTypeName: Knockback, Assembly-CSharp
+        m_MethodName: PlayFeedBack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDeathWithReference:
     m_PersistentCalls:
       m_Calls: []
@@ -91,7 +102,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7984019760544513418}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EnemyOnHit, Assembly-CSharp
         m_MethodName: set_enabled
         m_Mode: 6
@@ -118,7 +129,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 7984019760544513418}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EnemyOnHit, Assembly-CSharp
         m_MethodName: set_enabled
         m_Mode: 6
@@ -146,20 +157,6 @@ MonoBehaviour:
   roamSpeed: 6
   waitTime: 2
   changeDirectionChance: 0.3
---- !u!114 &7984019760544513418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4670881758672967364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97154fb5abcd6a043866230bb97bedde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 3
-  speedMul: 1.5
 --- !u!212 &1034775231455333998
 SpriteRenderer:
   m_ObjectHideFlags: 0
