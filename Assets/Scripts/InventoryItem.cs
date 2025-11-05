@@ -14,14 +14,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         canvas = GetComponentInParent<CanvasGroup>();
     }
 
-    private void Start()
-    {
-        if (itemData != null)
-        {
-            image.sprite = itemData.icon;
-        }
-    }
-
     public void OnBeginDrag(PointerEventData eventData)
     {
         originalParent = transform.parent;
