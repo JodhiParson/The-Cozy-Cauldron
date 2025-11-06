@@ -7,7 +7,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     Transform originalParent;
     CanvasGroup canvas;
 
-    public ItemData itemData; // ⬅️ reference to the data
+
 
     private void Awake()
     {

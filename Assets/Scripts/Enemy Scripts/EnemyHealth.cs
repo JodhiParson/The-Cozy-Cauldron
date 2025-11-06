@@ -1,9 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
+    //LootTable
+    [Header("Loot")]
+    public List<LootItem> lootTable = new List<LootItem>();
     [SerializeField]
     public int maxHealth, health;
     public UnityEvent<GameObject> OnHitWithReference, OnDeathWithReference;
@@ -33,7 +37,27 @@ public class EnemyHealth : MonoBehaviour
         {
             OnDeathWithReference?.Invoke(sender);
             isDead = true;
-            Destroy(gameObject);
+            Die();
+        }
+    }
+    void Die()
+    {
+        //loottable
+        foreach (LootItem lootItem in lootTable)
+        {
+            if (Random.Range(0f, 100f) <= lootItem.dropChance)
+            {
+                InstantiateLoot(lootItem.itemPrefab);
+            }
+            break;
+        }
+        Destroy(gameObject);
+    }
+    void InstantiateLoot(GameObject loot)
+    {
+        if (loot)
+        {
+            Instantiate(loot, transform.position, Quaternion.identity);
         }
     }
 }
