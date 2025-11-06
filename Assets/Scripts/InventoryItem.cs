@@ -62,7 +62,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            EquipmentManager.instance.Equip(this);
+            // EquipmentManager.instance.Equip(this);
         }
     }
 }
