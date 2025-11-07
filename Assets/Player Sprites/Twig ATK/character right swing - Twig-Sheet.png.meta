@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: 8175d50c745bbed4abb03c184bc30acf
+guid: 2e5b1f9914743464f8deaf3772335792
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8617940771099066465
-    second: HugeMushroom_attack1_0
+      213: -482324014610957759
+    second: character right swing - Twig-Sheet_0
   - first:
-      213: -534302494857197577
-    second: HugeMushroom_attack1_1
+      213: 6065352644823844431
+    second: character right swing - Twig-Sheet_1
   - first:
-      213: 5378417062632987868
-    second: HugeMushroom_attack1_2
+      213: -5556970417993824839
+    second: character right swing - Twig-Sheet_2
   - first:
-      213: -429589028804423172
-    second: HugeMushroom_attack1_3
+      213: 7458097091343286818
+    second: character right swing - Twig-Sheet_3
+  - first:
+      213: 7955847217212514981
+    second: character right swing - Twig-Sheet_4
+  - first:
+      213: 2929500110226803491
+    second: character right swing - Twig-Sheet_5
+  - first:
+      213: 107379260779079972
+    second: character right swing - Twig-Sheet_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HugeMushroom_attack1_0
+      name: character right swing - Twig-Sheet_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 0
-        width: 41
-        height: 62
+        x: 0
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9fb84b478ce66880800000000000000
-      internalID: -8617940771099066465
+      spriteID: 14a397a3dd07e49f0800000000000000
+      internalID: -482324014610957759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HugeMushroom_attack1_1
+      name: character right swing - Twig-Sheet_1
       rect:
         serializedVersion: 2
-        x: 101
-        y: 0
-        width: 41
-        height: 61
+        x: 64
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7f78e6736b6c598f0800000000000000
-      internalID: -534302494857197577
+      spriteID: f46833848167c2450800000000000000
+      internalID: 6065352644823844431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HugeMushroom_attack1_2
+      name: character right swing - Twig-Sheet_2
       rect:
         serializedVersion: 2
-        x: 144
-        y: 0
-        width: 70
-        height: 59
+        x: 128
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cdc932882d9f3aa40800000000000000
-      internalID: 5378417062632987868
+      spriteID: 9b5cf10d8dca1e2b0800000000000000
+      internalID: -5556970417993824839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HugeMushroom_attack1_3
+      name: character right swing - Twig-Sheet_3
       rect:
         serializedVersion: 2
-        x: 229
-        y: 0
-        width: 58
-        height: 61
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +199,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf115baed0bc90af0800000000000000
-      internalID: -429589028804423172
+      spriteID: 22204e53acb708760800000000000000
+      internalID: 7458097091343286818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character right swing - Twig-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a26b3564e8d86e60800000000000000
+      internalID: 7955847217212514981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character right swing - Twig-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32b498f34dca7a820800000000000000
+      internalID: 2929500110226803491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character right swing - Twig-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4292bf66edc7d7100800000000000000
+      internalID: 107379260779079972
       vertices: []
       indices: 
       edges: []
@@ -200,7 +275,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 89f2734d290c92147880213083767815
+    spriteID: af0b01f001f484442baf50040f9c4684
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +285,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HugeMushroom_attack1_0: -8617940771099066465
-      HugeMushroom_attack1_1: -534302494857197577
-      HugeMushroom_attack1_2: 5378417062632987868
-      HugeMushroom_attack1_3: -429589028804423172
+      character right swing - Twig-Sheet_0: -482324014610957759
+      character right swing - Twig-Sheet_1: 6065352644823844431
+      character right swing - Twig-Sheet_2: -5556970417993824839
+      character right swing - Twig-Sheet_3: 7458097091343286818
+      character right swing - Twig-Sheet_4: 7955847217212514981
+      character right swing - Twig-Sheet_5: 2929500110226803491
+      character right swing - Twig-Sheet_6: 107379260779079972
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
