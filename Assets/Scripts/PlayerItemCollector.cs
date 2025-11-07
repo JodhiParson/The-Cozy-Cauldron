@@ -3,19 +3,20 @@ using UnityEngine;
 public class PlayerItemCollector : MonoBehaviour
 {
     private InventoryController inventoryController;
+
     void Start()
     {
         inventoryController = FindFirstObjectByType<InventoryController>();
     }
 
-    private void OggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Item"))
         {
             Item item = collision.GetComponent<Item>();
-            if(item != null)
+            if (item != null)
             {
-                bool itemAdded = inventoryController.AddItem(collision.gameObject);
+                bool itemAdded = inventoryController.AddItem(item.ID);
                 if (itemAdded)
                 {
                     Destroy(collision.gameObject);
