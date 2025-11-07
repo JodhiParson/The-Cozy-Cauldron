@@ -33,6 +33,14 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         canvas.alpha = 1f;
 
         Slot dropSlot = eventData.pointerEnter?.GetComponent<Slot>();
+        if (dropSlot == null)
+        {
+            GameObject item = eventData.pointerEnter;
+            if (item !=null)
+            {
+                dropSlot = item.GetComponentInParent<Slot>();
+            }
+        }
         Slot originalSlot = originalParent?.GetComponent<Slot>();
 
         if (dropSlot != null)
