@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: 8175d50c745bbed4abb03c184bc30acf
+guid: 8330ebed5323fc14ea63c4d992a8ec20
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8617940771099066465
-    second: HugeMushroom_attack1_0
+      213: -1962648647095458724
+    second: character right swing - WSword-Sheet_0
   - first:
-      213: -534302494857197577
-    second: HugeMushroom_attack1_1
+      213: 6611699825621424069
+    second: character right swing - WSword-Sheet_1
   - first:
-      213: 5378417062632987868
-    second: HugeMushroom_attack1_2
+      213: -8928762701011799942
+    second: character right swing - WSword-Sheet_2
   - first:
-      213: -429589028804423172
-    second: HugeMushroom_attack1_3
+      213: -1285170167173809711
+    second: character right swing - WSword-Sheet_3
+  - first:
+      213: 529159788562863154
+    second: character right swing - WSword-Sheet_4
+  - first:
+      213: -6078056927149058198
+    second: character right swing - WSword-Sheet_5
+  - first:
+      213: -8282924443053242704
+    second: character right swing - WSword-Sheet_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HugeMushroom_attack1_0
+      name: character right swing - WSword-Sheet_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 0
-        width: 41
-        height: 62
+        x: 0
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9fb84b478ce66880800000000000000
-      internalID: -8617940771099066465
+      spriteID: c5469fa347543c4e0800000000000000
+      internalID: -1962648647095458724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HugeMushroom_attack1_1
+      name: character right swing - WSword-Sheet_1
       rect:
         serializedVersion: 2
-        x: 101
-        y: 0
-        width: 41
-        height: 61
+        x: 64
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7f78e6736b6c598f0800000000000000
-      internalID: -534302494857197577
+      spriteID: 5c75dab06f971cb50800000000000000
+      internalID: 6611699825621424069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HugeMushroom_attack1_2
+      name: character right swing - WSword-Sheet_2
       rect:
         serializedVersion: 2
-        x: 144
-        y: 0
-        width: 70
-        height: 59
+        x: 128
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cdc932882d9f3aa40800000000000000
-      internalID: 5378417062632987868
+      spriteID: a703f6a41a9a61480800000000000000
+      internalID: -8928762701011799942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HugeMushroom_attack1_3
+      name: character right swing - WSword-Sheet_3
       rect:
         serializedVersion: 2
-        x: 229
-        y: 0
-        width: 58
-        height: 61
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +199,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf115baed0bc90af0800000000000000
-      internalID: -429589028804423172
+      spriteID: 1d9fca5ca882a2ee0800000000000000
+      internalID: -1285170167173809711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character right swing - WSword-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 234d5ba2604f75700800000000000000
+      internalID: 529159788562863154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character right swing - WSword-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a679dac7d6766aba0800000000000000
+      internalID: -6078056927149058198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character right swing - WSword-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b649669a142d0d80800000000000000
+      internalID: -8282924443053242704
       vertices: []
       indices: 
       edges: []
@@ -200,7 +275,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 89f2734d290c92147880213083767815
+    spriteID: 519f45085c579544ca6a8545f37044f3
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +285,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HugeMushroom_attack1_0: -8617940771099066465
-      HugeMushroom_attack1_1: -534302494857197577
-      HugeMushroom_attack1_2: 5378417062632987868
-      HugeMushroom_attack1_3: -429589028804423172
+      character right swing - WSword-Sheet_0: -1962648647095458724
+      character right swing - WSword-Sheet_1: 6611699825621424069
+      character right swing - WSword-Sheet_2: -8928762701011799942
+      character right swing - WSword-Sheet_3: -1285170167173809711
+      character right swing - WSword-Sheet_4: 529159788562863154
+      character right swing - WSword-Sheet_5: -6078056927149058198
+      character right swing - WSword-Sheet_6: -8282924443053242704
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -11,6 +12,13 @@ public class BossHealth : MonoBehaviour
     [SerializeField]
     public bool isDead;
     public Slider healthBar;
+
+    public Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     public void InitializeHealth(int healthValue)
     {
         health = healthValue;
@@ -43,7 +51,19 @@ public class BossHealth : MonoBehaviour
         {
             OnDeathWithReference?.Invoke(sender);
             isDead = true;
-            Destroy(gameObject);
+            StartCoroutine(HandleDeath());
         }
+    }
+
+    private IEnumerator HandleDeath()
+    {
+        animator.SetTrigger("isDead");
+
+        while(animator.GetCurrentAnimatorStateInfo(0).IsName("Death") == false)
+             yield return null;
+         while(animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+             yield return null;
+
+        Destroy(gameObject);
     }
 }

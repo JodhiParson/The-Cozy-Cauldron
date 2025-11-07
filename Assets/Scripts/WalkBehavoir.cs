@@ -2,20 +2,26 @@ using UnityEngine;
 
 public class WalkBehavoir : StateMachineBehaviour
 {
+    [Header("Timers")]
     public float timer;
-    public float minTime;
-    public float maxTime;
-    private Transform playerPos;
-    public float speed;
+    public float minTime = 1f;
+    public float maxTime = 3f;
 
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    [Header("Movement")]
+    public float speed = 2f;
+    [Tooltip("How far below the boss's center the feet are.")]
+    public float feetOffset;
+
+    private Transform playerPos;
+
+    // Called when entering the walk state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        playerPos = GameObject.FindWithTag("PlayerHitbox").GetComponent<Transform>();
+        playerPos = GameObject.FindWithTag("PlayerHitbox").transform;
         timer = Random.Range(minTime, maxTime);
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    // Called each frame while in this state
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (timer <= 0)
@@ -27,38 +33,26 @@ public class WalkBehavoir : StateMachineBehaviour
             timer -= Time.deltaTime;
         }
 
+        // --- Offset boss position downward so it moves from feet instead of body center ---
         Vector2 target = new Vector2(playerPos.position.x, playerPos.position.y);
-        animator.transform.position = Vector2.MoveTowards(animator.transform.position, target, speed * Time.deltaTime);
+        Vector2 bossPos = animator.transform.position;
+        Vector2 bossFeet = new Vector2(bossPos.x, bossPos.y - feetOffset);
 
+        // Move the boss toward the target, using its feet as reference
+        Vector2 newPos = Vector2.MoveTowards(bossFeet, target, speed * Time.deltaTime);
+
+        // Restore offset so the actual transform moves correctly
+        newPos.y += feetOffset;
+
+        animator.transform.position = newPos;
+
+        // --- Flip sprite to face player ---
         Vector2 scale = animator.transform.localScale;
         if (playerPos.position.x < animator.transform.position.x)
-        {
-            scale.x = Mathf.Abs(scale.x);            
-        }
-
+            scale.x = Mathf.Abs(scale.x);
         else
-        {
-            scale.x = -Mathf.Abs(scale.x);            
-        }
+            scale.x = -Mathf.Abs(scale.x);
 
-            animator.transform.localScale = scale;
+        animator.transform.localScale = scale;
     }
-
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
-
-    // OnStateMove is called right after Animator.OnAnimatorMove()
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that processes and affects root motion
-    //}
-
-    // OnStateIK is called right after Animator.OnAnimatorIK()
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that sets up animation IK (inverse kinematics)
-    //}
 }

@@ -298,9 +298,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 400
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 400
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -316,8 +316,8 @@ GameObject:
   - component: {fileID: 9100869543198748176}
   - component: {fileID: 5144017243970361827}
   - component: {fileID: 4440416346364785521}
-  - component: {fileID: 8739108256048317822}
   - component: {fileID: -5670893988492960861}
+  - component: {fileID: 8739108256048317822}
   - component: {fileID: 7570396688633148974}
   - component: {fileID: 9160971534054158333}
   - component: {fileID: 6252120893152052963}
@@ -358,8 +358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949f08ef418d8bf45a31c58d38666930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  health: 100
+  maxHealth: 400
+  health: 400
   OnHitWithReference:
     m_PersistentCalls:
       m_Calls: []
@@ -368,6 +368,7 @@ MonoBehaviour:
       m_Calls: []
   isDead: 0
   healthBar: {fileID: 5341613649007466979}
+  animator: {fileID: 0}
 --- !u!114 &5144017243970361827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +400,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossRenderer: {fileID: 8739108256048317822}
+--- !u!114 &-5670893988492960861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5661583193153777382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e42b044c12890664c875e8fb70f370d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTag: Player
+  attackRange: 15
+  attackCooldown: 0
 --- !u!212 &8739108256048317822
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -441,7 +457,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1047654803
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -9000730402504409319, guid: cf7f73e32595e2341bd68b1a2af377e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -454,21 +470,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-5670893988492960861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5661583193153777382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e42b044c12890664c875e8fb70f370d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTag: Player
-  attackRange: 15
-  attackCooldown: 0
 --- !u!95 &7570396688633148974
 Animator:
   serializedVersion: 7
@@ -503,7 +504,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 328.90085
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_GravityScale: 0
@@ -552,7 +553,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.16882983}
+  m_Offset: {x: 0, y: -0.18697381}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -562,7 +563,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.44, y: 0.29234034}
+  m_Size: {x: 0.44, y: 0.3286283}
   m_EdgeRadius: 0
 --- !u!61 &3148336731026799588
 BoxCollider2D:
@@ -690,8 +691,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.24699864, y: 0.0009928844}
-  m_Radius: 0.22461718
+  m_Offset: {x: -0.15533793, y: -0.0036723046}
+  m_Radius: 0.32094336
 --- !u!1 &6478171007262142688
 GameObject:
   m_ObjectHideFlags: 0
