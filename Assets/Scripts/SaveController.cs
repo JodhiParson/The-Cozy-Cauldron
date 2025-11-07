@@ -4,10 +4,12 @@ using UnityEngine;
 public class SaveController : MonoBehaviour
 {
     private string saveLocation;
+    private InventoryController inventoryController;
     void Start()
     {
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
         Debug.Log("Save file path: " + saveLocation);
+        inventoryController = FindFirstObjectByType<InventoryController>();
         LoadGame();
 
     }
@@ -19,7 +21,8 @@ public class SaveController : MonoBehaviour
         // Create save data
         SaveData saveData = new SaveData
         {
-            playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position
+            playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position,
+            inventorySaveData = inventoryController.GetInventoryItems()
         };
 
         // Convert to JSON and save to file
@@ -35,6 +38,7 @@ public class SaveController : MonoBehaviour
         {
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
             GameObject.FindGameObjectWithTag("Player").transform.position = saveData.playerPosition;
+            inventoryController.SetInventoryItems(saveData.inventorySaveData);
         }
         else
         {
