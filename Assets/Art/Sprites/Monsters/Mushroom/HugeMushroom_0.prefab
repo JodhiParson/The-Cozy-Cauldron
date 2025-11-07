@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb258d9e90ca5f42b62a38372ee2554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 40
   timeBetweenHits: 1.5
   hitbox: {fileID: 6280932816475411638}
   targetLayers:
