@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootTable:
-  - itemPrefab: {fileID: 2219149242224787504, guid: f670a66d101016c4ba848b55c6044fca, type: 3}
+  - itemPrefab: {fileID: 6886792007008887087, guid: 4202d7268d3fa04479094979f6740c1c, type: 3}
     dropChance: 100
   maxHealth: 10
   health: 10

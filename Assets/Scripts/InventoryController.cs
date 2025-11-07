@@ -70,22 +70,21 @@ public class InventoryController : MonoBehaviour
             }
         }
     }
-   public bool AddItem(int itemID)
+   public bool AddItem(GameObject itemPrefab)
     {
-        // Lookup data from database
-        var entry = itemDatabase.GetItem(itemID);
-        if (entry == null)
+        foreach (Transform slotTransform in inventoryPanel.transform)
         {
-            Debug.LogWarning($"Item ID {itemID} not found in database!");
-            return false;
+            Slot slot = slotTransform.GetComponent<Slot>();
+            if (slot != null && slot.currentItem == null)
+            {
+                GameObject newItem = Instantiate(itemPrefab, slotTransform);
+                newItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                slot.currentItem = newItem;
+                return true;
+            }
         }
-
-        // Instantiate UI version
-        GameObject newItemUI = Instantiate(itemUIPrefab, inventoryPanel.transform);
-        Image image = newItemUI.GetComponentInChildren<Image>();
-        image.sprite = entry.icon;
-
-        return true;
+        Debug.Log("Inventory is Full");
+        return false;
     }
 
 }
