@@ -82,39 +82,69 @@ public class InventoryController : MonoBehaviour
         Debug.Log("Inventory panel has " + inventoryPanel.transform.childCount + " children");
         foreach (Transform slotTransform in inventoryPanel.transform)
         {
-            Debug.Log("Checking slot: " + slotTransform.name); //coment
             Slot slot = slotTransform.GetComponent<Slot>();
-            if (slot == null)
-            {
-                Debug.Log("No Slot script on: " + slotTransform.name);
-            }
-            else if (slot.currentItem != null)
-            {
-                Debug.Log("Slot already has item: " + slot.currentItem.name); //coment
-            }
-                
             if (slot != null && slot.currentItem == null)
             {
+                // 1️⃣ Instantiate the UI item prefab as a child of the slot
                 GameObject newItem = Instantiate(itemUIPrefab, slotTransform);
-                
-                // Set icon
+
+                // 2️⃣ Set icon sprite and color
                 Image iconImage = newItem.GetComponentInChildren<Image>();
                 iconImage.sprite = data.icon;
                 iconImage.color = data.iconTint;
 
-                // Adjust size if defined
+                // 3️⃣ Fix positioning and size so it appears in the slot
                 RectTransform rect = newItem.GetComponent<RectTransform>();
-                rect.sizeDelta = data.iconSize;
+                rect.localScale = Vector3.one;           // ensure scale is correct
+                rect.anchoredPosition = Vector2.zero;    // center in slot
+                rect.sizeDelta = data.iconSize;          // optional: use ScriptableObject size
 
+                // 4️⃣ Mark slot as occupied
                 slot.currentItem = newItem;
-                Debug.Log("Item Added!?");
+
+                Debug.Log("Item Added!");
                 return true;
             }
         }
 
-        Debug.Log("Inventory is Full");
+        Debug.Log("Inventory Full!");
         return false;
     }
+    //     foreach (Transform slotTransform in inventoryPanel.transform)
+    //     {
+    //         Debug.Log("Checking slot: " + slotTransform.name); //coment
+    //         Slot slot = slotTransform.GetComponent<Slot>();
+    //         if (slot == null)
+    //         {
+    //             Debug.Log("No Slot script on: " + slotTransform.name);
+    //         }
+    //         else if (slot.currentItem != null)
+    //         {
+    //             Debug.Log("Slot already has item: " + slot.currentItem.name); //coment
+    //         }
+                
+    //         if (slot != null && slot.currentItem == null)
+    //         {
+    //             GameObject newItem = Instantiate(itemUIPrefab, slotTransform);
+                
+    //             // Set icon
+    //             Image iconImage = newItem.GetComponentInChildren<Image>();
+    //             iconImage.sprite = data.icon;
+    //             iconImage.color = data.iconTint;
+
+    //             // Adjust size if defined
+    //             RectTransform rect = newItem.GetComponent<RectTransform>();
+    //             rect.sizeDelta = data.iconSize;
+
+    //             slot.currentItem = newItem;
+    //             Debug.Log("Item Added!?");
+    //             return true;
+    //         }
+    //     }
+
+    //     Debug.Log("Inventory is Full");
+    //     return false;
+    // }
     // public bool AddItem(GameObject itemPrefab)
     // {
     //     foreach (Transform slotTransform in inventoryPanel.transform)

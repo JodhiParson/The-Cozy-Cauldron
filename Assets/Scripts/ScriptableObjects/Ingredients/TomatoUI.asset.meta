@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<<< HEAD:Assets/Scripts/ScriptableObjects/Ingredients/TomatoUI.asset.meta
 guid: e8202de6c9a604648b65c6a388131076
 ========
 guid: 34ec8dc63f1263a4996321de235544b2
 >>>>>>>> 4055402 (feat: Add inventory UI system w ScriptableObjects):Assets/Scripts/ScriptableObjects/Weapons/NewUIItemData.asset.meta
+=======
+guid: e8202de6c9a604648b65c6a388131076
+>>>>>>> 2c92900 (create tomatoUI asset and move scripts)
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
