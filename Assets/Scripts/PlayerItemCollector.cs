@@ -13,15 +13,21 @@ public class PlayerItemCollector : MonoBehaviour
     {
         if (collision.CompareTag("Item"))
         {
+            // Debug.Log("Collided with Egg");
             Item item = collision.GetComponent<Item>();
             if (item != null)
             {
-                bool itemAdded = inventoryController.AddItem(collision.gameObject);
-                if (itemAdded)
-                {
-                    Destroy(collision.gameObject);
-                }
+                inventoryController.AddItem(item.uiItemData);
+                Destroy(collision.gameObject);
             }
+            // if (item != null)
+            // {
+            //     bool itemAdded = inventoryController.AddItem(collision.gameObject);
+            //     if (itemAdded)
+            //     {
+            //         Destroy(collision.gameObject);
+            //     }
+            // }
         }
     }
 }
