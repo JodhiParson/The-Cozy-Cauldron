@@ -22,7 +22,7 @@ public class SaveController : MonoBehaviour
         SaveData saveData = new SaveData
         {
             playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position,
-            inventorySaveData = inventoryController.GetInventoryItems()
+            // inventorySaveData = inventoryController.GetInventoryItems()
         };
 
         // Convert to JSON and save to file
