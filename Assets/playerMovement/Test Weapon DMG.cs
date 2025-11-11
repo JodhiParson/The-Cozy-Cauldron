@@ -1,69 +1,98 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Collider2D))]
 public class WeaponDamage : MonoBehaviour
 {
     [Header("Damage Settings")]
-    public int damageAmount = 20;
-    public string targetTag = "Enemy"; // normal enemies
-    public string bossTag = "Boss";    // bosses
-    [Tooltip("Assign the hitbox GameObject here (child of player).")]
-    public GameObject hitbox;
+    public WeaponData weaponData;
+    public EquipWeapon equipController;
+    public string targetTag = "Enemy";
+    public string bossTag = "Boss";
 
-    private Collider2D hitboxCollider;
+    [Tooltip("Assign one or more hitbox GameObjects here (children of player).")]
+    public List<GameObject> hitboxes = new List<GameObject>();
+
+    private List<Collider2D> hitboxColliders = new List<Collider2D>();
 
     private void Awake()
     {
-        // Automatically pull collider from assigned hitbox
-        if (hitbox != null)
+        if (hitboxes.Count == 0)
         {
-            hitboxCollider = hitbox.GetComponent<Collider2D>();
+            Debug.LogError("No hitboxes assigned in WeaponDamage!");
+            return;
+        }
 
-            if (hitboxCollider == null)
+        for (int i = 0; i < hitboxes.Count; i++)
+        {
+            var hitbox = hitboxes[i];
+            if (hitbox == null) continue;
+
+            var collider = hitbox.GetComponent<Collider2D>();
+            if (collider == null)
+            {
                 Debug.LogError($"Hitbox '{hitbox.name}' has no Collider2D component!");
+                continue;
+            }
 
-            // Hook events by using forwarding component
+            hitboxColliders.Add(collider);
+
             var forwarder = hitbox.GetComponent<HitboxTriggerForwarder>();
             if (forwarder == null)
                 forwarder = hitbox.AddComponent<HitboxTriggerForwarder>();
 
             forwarder.weaponDamage = this;
-        }
-        else
-        {
-            Debug.LogError("No hitbox assigned in WeaponDamage!");
+
+            // Make sure all hitboxes start disabled
+            hitbox.SetActive(false);
         }
     }
 
     public void HandleHit(Collider2D collision)
     {
-        Debug.Log($"Triggered with {collision.name}");
+        int damageAmount = weaponData != null ? weaponData.damage : 10;
 
-        // === Enemy ===
         if (collision.CompareTag(targetTag))
         {
-            Debug.Log("Hit enemy!");
-            EnemyHealth enemyHealth = collision.GetComponentInParent<EnemyHealth>();
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(damageAmount, gameObject);
-                return;
-            }
+            EnemyHealth enemy = collision.GetComponentInParent<EnemyHealth>();
+            if (enemy != null)
+                enemy.TakeDamage(damageAmount, gameObject);
         }
 
-        // === Boss ===
         if (collision.CompareTag(bossTag))
         {
-            Debug.Log("Hit boss!");
-            BossHealth bossHealth = collision.GetComponentInParent<BossHealth>();
-            if (bossHealth != null)
-            {
-                bossHealth.TakeDamage(damageAmount, gameObject);
-                return;
-            }
+            BossHealth boss = collision.GetComponentInParent<BossHealth>();
+            if (boss != null)
+                boss.TakeDamage(damageAmount, gameObject);
         }
     }
 
-    public void EnableHitbox() => hitbox?.SetActive(true);
-    public void DisableHitbox() => hitbox?.SetActive(false);
+public void SetWeaponData(WeaponData newData)
+{
+    weaponData = newData;
+    Debug.Log($"Weapon data updated to: {weaponData.weaponName}");
+}
+
+
+    // --- Animation Event Functions ---
+
+    public void EnableHitbox1() => EnableHitbox(0);
+    public void DisableHitbox1() => DisableHitbox(0);
+
+    public void EnableHitbox2() => EnableHitbox(1);
+    public void DisableHitbox2() => DisableHitbox(1);
+
+    // Add more if you have more hitboxes, or use a generic method below
+
+    public void EnableHitbox(int index)
+    {
+        if (index >= 0 && index < hitboxes.Count)
+            hitboxes[index]?.SetActive(true);
+    }
+
+    public void DisableHitbox(int index)
+    {
+        if (index >= 0 && index < hitboxes.Count)
+            hitboxes[index]?.SetActive(false);
+    }
 }

@@ -12,6 +12,7 @@ public class EquipWSword : MonoBehaviour
     {
         animator.SetBool("EquipWSword", true);
         animator.SetBool("EquipTwig", false);
+        animator.SetBool("EquipSSword", false);
     }
 
 }
