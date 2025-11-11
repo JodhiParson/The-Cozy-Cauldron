@@ -19,10 +19,6 @@ public class PlayerItemCollector : MonoBehaviour
             Item item = collision.GetComponent<Item>();
             if (item != null)
             {
-                Collider2D col = collision.GetComponent<Collider2D>();
-                if (col != null)
-                    col.enabled = false;  // disable trigger
-                
                 inventoryController.AddItem(item.uiItemData);
                 Destroy(collision.gameObject);
             }
