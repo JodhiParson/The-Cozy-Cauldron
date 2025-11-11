@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Tomato
   icon: {fileID: 8659164786639811326, guid: 0994f098cbd43c04ca3877c6514d4c3d, type: 3}
-  iconTint: {r: 1, g: 1, b: 1, a: 0}
+  iconTint: {r: 1, g: 1, b: 1, a: 1}
   iconSize: {x: 64, y: 64}
