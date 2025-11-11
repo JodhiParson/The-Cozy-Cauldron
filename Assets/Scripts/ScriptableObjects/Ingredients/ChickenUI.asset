@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fde55ee5a3750e4b866a3c773fd0e8e, type: 3}
-  m_Name: TomatoUI
+  m_Name: ChickenUI
   m_EditorClassIdentifier: 
-  itemName: Tomato
-  icon: {fileID: 8659164786639811326, guid: 0994f098cbd43c04ca3877c6514d4c3d, type: 3}
+  itemName: Chicken
+  icon: {fileID: 3752932084845284742, guid: 236c41296a4444c4893f48073c6d1591, type: 3}
   iconTint: {r: 1, g: 1, b: 1, a: 1}
   iconSize: {x: 64, y: 64}

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fde55ee5a3750e4b866a3c773fd0e8e, type: 3}
-  m_Name: NewUIItemData
+  m_Name: CabbageUI
   m_EditorClassIdentifier: 
-  itemName: Twig
-  icon: {fileID: 5055330669412280949, guid: 26ac404b4275f6740b12b5aca372679b, type: 3}
+  itemName: Egg
+  icon: {fileID: 5163557123177560035, guid: 8b80491a17869ad41a0ad695444d2c7c, type: 3}
   iconTint: {r: 1, g: 1, b: 1, a: 1}
   iconSize: {x: 64, y: 64}
