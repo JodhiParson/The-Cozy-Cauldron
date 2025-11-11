@@ -11,7 +11,9 @@ public class PlayerItemCollector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.CompareTag("Item"))
+    
         {
             // Debug.Log("Collided with Egg");
             Item item = collision.GetComponent<Item>();
@@ -28,6 +30,27 @@ public class PlayerItemCollector : MonoBehaviour
             //         Destroy(collision.gameObject);
             //     }
             // }
+            // {
+
+            //TESTING FOR COLLISIONS
+        //     Item item = collision.GetComponent<Item>();
+        //     if (item != null && item.uiItemData != null)
+        //     {
+        //         Debug.Log("Item picked up: " + item.uiItemData.itemName);
+        //         Debug.Log("Icon sprite: " + item.uiItemData.icon);
+        //         Debug.Log("Icon tint: " + item.uiItemData.iconTint);
+        //         Debug.Log("Icon size: " + item.uiItemData.iconSize);
+
+        //         // Optional: add to inventory
+        //         // inventoryController.AddItem(item.uiItemData);
+
+        //         // Destroy(collision.gameObject);
+        //     }
+        //     else
+        //     {
+        //         Debug.LogWarning("Item or uiItemData missing!");
+        //     }
+        // }
         }
     }
 }
