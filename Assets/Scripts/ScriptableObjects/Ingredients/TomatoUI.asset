@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TomatoUI
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   itemName: Tomato
   icon: {fileID: 8659164786639811326, guid: 0994f098cbd43c04ca3877c6514d4c3d, type: 3}
 =======
@@ -20,4 +21,9 @@ MonoBehaviour:
   icon: {fileID: 0}
 >>>>>>> 2c92900 (create tomatoUI asset and move scripts)
   iconTint: {r: 1, g: 1, b: 1, a: 1}
+=======
+  itemName: Tomato
+  icon: {fileID: 8659164786639811326, guid: 0994f098cbd43c04ca3877c6514d4c3d, type: 3}
+  iconTint: {r: 1, g: 1, b: 1, a: 0}
+>>>>>>> 41f0a2b (ADDED PICKING UP INGREDIENTS!)
   iconSize: {x: 64, y: 64}
