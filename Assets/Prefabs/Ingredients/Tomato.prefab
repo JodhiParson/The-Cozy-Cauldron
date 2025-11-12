@@ -94,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 2
   uiItemData: {fileID: 11400000, guid: e8202de6c9a604648b65c6a388131076, type: 2}
+  Name: Tomato
 --- !u!212 &728922165110002706
 SpriteRenderer:
   m_ObjectHideFlags: 0
