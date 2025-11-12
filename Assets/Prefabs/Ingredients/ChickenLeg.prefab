@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4901880566513278970}
   - component: {fileID: -1159710399690961853}
   m_Layer: 0
-  m_Name: Egg
+  m_Name: ChickenLeg
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -22, y: 3}
-  m_SizeDelta: {x: 30, y: 30}
+  m_SizeDelta: {x: 32, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2748817111484658919
 CanvasRenderer:
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5163557123177560035, guid: 8b80491a17869ad41a0ad695444d2c7c, type: 3}
+  m_Sprite: {fileID: 3752932084845284742, guid: 236c41296a4444c4893f48073c6d1591, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -92,9 +92,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d0c7f8290cfc1f4b8dc1c3fbc0545a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 1
-  uiItemData: {fileID: 11400000, guid: e1e506c488bf7bf4fa6c3f433f454e1b, type: 2}
-  Name: Egg
+  ID: 3
+  uiItemData: {fileID: 11400000, guid: 21cca5740df69b546afc17dfe5b3cc07, type: 2}
+  Name: ChickenLeg
 --- !u!212 &728922165110002706
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ SpriteRenderer:
   m_SortingLayerID: -2086782865
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5163557123177560035, guid: 8b80491a17869ad41a0ad695444d2c7c, type: 3}
+  m_Sprite: {fileID: 3752932084845284742, guid: 236c41296a4444c4893f48073c6d1591, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
