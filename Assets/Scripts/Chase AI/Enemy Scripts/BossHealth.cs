@@ -1,10 +1,13 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class BossHealth : MonoBehaviour
 {
+    [Header("Loot")]
+    public List<LootItem> lootTable = new List<LootItem>();
     [SerializeField]
     public int maxHealth, health;
     public UnityEvent<GameObject> OnHitWithReference, OnDeathWithReference;
@@ -59,11 +62,29 @@ public class BossHealth : MonoBehaviour
     {
         animator.SetTrigger("isDead");
 
-        while(animator.GetCurrentAnimatorStateInfo(0).IsName("Death") == false)
-             yield return null;
-         while(animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
-             yield return null;
+        while (animator.GetCurrentAnimatorStateInfo(0).IsName("Death") == false)
+            yield return null;
+        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+            yield return null;
 
+        //loottable
+        foreach (LootItem lootItem in lootTable)
+        {
+            if (Random.Range(0f, 100f) <= lootItem.dropChance)
+            {
+                InstantiateLoot(lootItem.itemPrefab);
+                break; // ✅ only stop once something drops
+            }
+
+        }
         Destroy(gameObject);
+    }
+    
+    void InstantiateLoot(GameObject loot)
+    {
+        if (loot)
+        {
+            Instantiate(loot, transform.position, Quaternion.identity);
+        }
     }
 }
