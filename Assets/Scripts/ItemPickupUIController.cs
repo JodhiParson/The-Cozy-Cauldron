@@ -31,18 +31,18 @@ public class ItemPickupUIController : MonoBehaviour
         GameObject newPopup = Instantiate(popupPrefab, transform);
         newPopup.GetComponentInChildren<TMP_Text>().text = itemName;
 
-        Image itemImage = newPopup.transform.Find("ItemIcon")?.GetComponent<Image>();
-        if (itemImage)
-        {
-            itemImage.sprite = itemIcon;
-        }
+        // Image itemImage = newPopup.transform.Find("ItemIcon")?.GetComponent<Image>();
+        // if (itemImage)
+        // {
+        //     itemImage.sprite = itemIcon;
+        // }
 
         activePopups.Enqueue(newPopup);
         if (activePopups.Count > maxPopups)
         {
             Destroy(activePopups.Dequeue());
         }
-        
+
         //fade out
     }
 
