@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 4b1fd9fd2d36c1a43853919242c65b5c
+guid: 9dca4c4bf2fa7194eb21ca44b2049fdb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3186838707718394501
-    second: GoblinKing_attack3_0
+      213: 4763823631524683593
+    second: noGoblinKing_idle_0
   - first:
-      213: 2976713670645232160
-    second: GoblinKing_attack3_1
+      213: -4626201255412824449
+    second: noGoblinKing_idle_1
   - first:
-      213: -2109689463173293046
-    second: GoblinKing_attack3_2
+      213: 8918828047138240908
+    second: noGoblinKing_idle_2
   - first:
-      213: 6586274708650257028
-    second: GoblinKing_attack3_3
+      213: 8805776287917271916
+    second: noGoblinKing_idle_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,13 +109,79 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GoblinKing_attack3_0
+      name: noGoblinKing_idle_0
       rect:
         serializedVersion: 2
-        x: 11
+        x: 8
+        y: 0
+        width: 63
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94fd3a16a508c1240800000000000000
+      internalID: 4763823631524683593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noGoblinKing_idle_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 0
+        width: 64
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7607a7087e6ccfb0800000000000000
+      internalID: -4626201255412824449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noGoblinKing_idle_2
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 0
+        width: 63
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c89377adada06cb70800000000000000
+      internalID: 8918828047138240908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noGoblinKing_idle_3
+      rect:
+        serializedVersion: 2
+        x: 224
         y: 0
         width: 62
-        height: 57
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,74 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 582150a8bece93c20800000000000000
-      internalID: 3186838707718394501
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GoblinKing_attack3_1
-      rect:
-        serializedVersion: 2
-        x: 85
-        y: 0
-        width: 60
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 022bbd8ef496f4920800000000000000
-      internalID: 2976713670645232160
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GoblinKing_attack3_2
-      rect:
-        serializedVersion: 2
-        x: 149
-        y: 0
-        width: 68
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a0cdb216c90e8b2e0800000000000000
-      internalID: -2109689463173293046
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GoblinKing_attack3_3
-      rect:
-        serializedVersion: 2
-        x: 222
-        y: 0
-        width: 66
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 48aec32b3f5276b50800000000000000
-      internalID: 6586274708650257028
+      spriteID: c6beddcf0e6643a70800000000000000
+      internalID: 8805776287917271916
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GoblinKing_attack3_0: 3186838707718394501
-      GoblinKing_attack3_1: 2976713670645232160
-      GoblinKing_attack3_2: -2109689463173293046
-      GoblinKing_attack3_3: 6586274708650257028
+      noGoblinKing_idle_0: 4763823631524683593
+      noGoblinKing_idle_1: -4626201255412824449
+      noGoblinKing_idle_2: 8918828047138240908
+      noGoblinKing_idle_3: 8805776287917271916
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

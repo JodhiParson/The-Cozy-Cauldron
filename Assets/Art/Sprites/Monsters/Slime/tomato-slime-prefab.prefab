@@ -341,8 +341,8 @@ MonoBehaviour:
   lootTable:
   - itemPrefab: {fileID: 6886792007008887087, guid: 6efa4037ee4867d48a44074b432bbbda, type: 3}
     dropChance: 100
-  maxHealth: 5
-  health: 5
+  maxHealth: 15
+  health: 15
   OnHitWithReference:
     m_PersistentCalls:
       m_Calls:

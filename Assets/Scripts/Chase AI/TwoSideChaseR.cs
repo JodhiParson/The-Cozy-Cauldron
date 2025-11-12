@@ -29,7 +29,7 @@ public class TwoSideChaseR : MonoBehaviour
             movement = direction;
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
             if (movement.x != 0)
-                spriteRenderer.flipX = movement.x > 0;
+                spriteRenderer.flipX = movement.x < 0;
             animator.SetBool(isIdle, false);
             lastMoveDir = movement;
         }
@@ -40,7 +40,7 @@ public class TwoSideChaseR : MonoBehaviour
 
             movement = Vector2.zero;
 
-            spriteRenderer.flipX = lastMoveDir.x > 0;
+            spriteRenderer.flipX = lastMoveDir.x < 0;
         }
  
     }
