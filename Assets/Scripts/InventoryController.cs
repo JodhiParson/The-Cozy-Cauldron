@@ -11,14 +11,14 @@ public class InventoryController : MonoBehaviour
     public GameObject slotPrefab;
     public GameObject itemUIPrefab;
     
-    public int slotCount = 36;
+    public int slotCount;
     public GameObject[] itemPrefabs;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         itemDictionary = FindFirstObjectByType<ItemDictionary>();
-        
+
         for (int i = 0; i < slotCount; i++)
         {
             Slot slot = Instantiate(slotPrefab, inventoryPanel.transform).GetComponent<Slot>();
@@ -29,6 +29,7 @@ public class InventoryController : MonoBehaviour
                 slot.currentItem = item;
             }
         }
+        Debug.Log("slotCount is " + slotCount);
     }
 
     public List<InventorySaveData> GetInventoryItems()
@@ -53,10 +54,10 @@ public class InventoryController : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        for (int i = 0; i < slotCount; i++)
-        {
-            Instantiate(slotPrefab, inventoryPanel.transform);
-        }
+        // for (int i = 0; i < slotCount; i++)
+        // {
+        //     Instantiate(slotPrefab, inventoryPanel.transform);
+        // }
         foreach (InventorySaveData data in inventorySaveData)
         {
             if (data.slotIndex < slotCount)

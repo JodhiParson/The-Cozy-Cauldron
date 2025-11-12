@@ -31,14 +31,19 @@ public class SaveController : MonoBehaviour
         Debug.Log("Game saved to " + saveLocation);
 
     }
-    
+
     public void LoadGame()
     {
         if (File.Exists(saveLocation))
         {
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
             GameObject.FindGameObjectWithTag("Player").transform.position = saveData.playerPosition;
-            inventoryController.SetInventoryItems(saveData.inventorySaveData);
+
+            // ✅ Only set inventory if data actually exists
+            if (saveData.inventorySaveData != null && saveData.inventorySaveData.Count > 0)
+            {
+                inventoryController.SetInventoryItems(saveData.inventorySaveData);
+            }
         }
         else
         {
