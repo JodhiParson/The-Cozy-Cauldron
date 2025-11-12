@@ -94,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 0
   uiItemData: {fileID: 11400000, guid: e1e506c488bf7bf4fa6c3f433f454e1b, type: 2}
+  Name: Egg
 --- !u!212 &728922165110002706
 SpriteRenderer:
   m_ObjectHideFlags: 0
