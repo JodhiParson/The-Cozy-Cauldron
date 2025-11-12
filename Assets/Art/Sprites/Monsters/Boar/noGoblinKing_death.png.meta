@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 74a48b62a54d07f42a1a0b3a636dabe9
+guid: 0eb393411712edc4aa972075c85e5ca9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4602892065924526364
-    second: GoblinKing_sneer_0
+      213: 1799630764972704359
+    second: noGoblinKing_death_0
   - first:
-      213: 5445912442854129108
-    second: GoblinKing_sneer_1
+      213: -1428227170784569836
+    second: noGoblinKing_death_1
   - first:
-      213: 7573804711231346971
-    second: GoblinKing_sneer_2
+      213: 6191190333570270823
+    second: noGoblinKing_death_2
   - first:
-      213: 3048955772091754837
-    second: GoblinKing_sneer_3
+      213: -3692312403066955348
+    second: noGoblinKing_death_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GoblinKing_sneer_0
+      name: noGoblinKing_death_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 6
         y: 0
-        width: 65
-        height: 57
+        width: 64
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4eeca1f9d0e3f10c0800000000000000
-      internalID: -4602892065924526364
+      spriteID: 762001955a299f810800000000000000
+      internalID: 1799630764972704359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GoblinKing_sneer_1
+      name: noGoblinKing_death_1
       rect:
         serializedVersion: 2
-        x: 79
+        x: 76
         y: 0
-        width: 66
-        height: 56
+        width: 64
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4dd333a5384c39b40800000000000000
-      internalID: 5445912442854129108
+      spriteID: 41613da84faed2ce0800000000000000
+      internalID: -1428227170784569836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GoblinKing_sneer_2
+      name: noGoblinKing_death_2
       rect:
         serializedVersion: 2
-        x: 151
+        x: 148
         y: 0
-        width: 66
-        height: 56
+        width: 63
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b19df13d14f8b1960800000000000000
-      internalID: 7573804711231346971
+      spriteID: 766c9495ec68be550800000000000000
+      internalID: 6191190333570270823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GoblinKing_sneer_3
+      name: noGoblinKing_death_3
       rect:
         serializedVersion: 2
-        x: 223
+        x: 220
         y: 0
-        width: 65
-        height: 57
+        width: 63
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 559e763ee11105a20800000000000000
-      internalID: 3048955772091754837
+      spriteID: ca9dc6f9e6542ccc0800000000000000
+      internalID: -3692312403066955348
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GoblinKing_sneer_0: -4602892065924526364
-      GoblinKing_sneer_1: 5445912442854129108
-      GoblinKing_sneer_2: 7573804711231346971
-      GoblinKing_sneer_3: 3048955772091754837
+      noGoblinKing_death_0: 1799630764972704359
+      noGoblinKing_death_1: -1428227170784569836
+      noGoblinKing_death_2: 6191190333570270823
+      noGoblinKing_death_3: -3692312403066955348
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
