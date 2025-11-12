@@ -46,10 +46,11 @@ public class EnemyHealth : MonoBehaviour
         foreach (LootItem lootItem in lootTable)
         {
             if (Random.Range(0f, 100f) <= lootItem.dropChance)
-            {
-                InstantiateLoot(lootItem.itemPrefab);
-            }
-            break;
+        {
+            InstantiateLoot(lootItem.itemPrefab);
+            break; // ✅ only stop once something drops
+        }
+
         }
         Destroy(gameObject);
     }
