@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemPickupUIController : MonoBehaviour
 {
-    public static ItemPickupUIController Instance { get; private set}
+    public static ItemPickupUIController Instance { get; private set; }
 
     public GameObject popupPrefab;
     public int maxPopups = 5;
