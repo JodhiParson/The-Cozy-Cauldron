@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 2021047950600742062}
   - component: {fileID: 2091066113263392322}
   - component: {fileID: 8050597150805855737}
+  - component: {fileID: 2145912131201613757}
   m_Layer: 0
   m_Name: Boar
   m_TagString: Enemy
@@ -176,7 +177,7 @@ MonoBehaviour:
   hitbox: {fileID: 5880634143033372719}
   targetLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 0
   animator: {fileID: 2021047950600742062}
 --- !u!114 &7714287531051734268
 MonoBehaviour:
@@ -341,3 +342,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.63, y: 0.2091331}
   m_EdgeRadius: 0
+--- !u!114 &2145912131201613757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7005137741158136546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea63cd0219b32a14cbebe2d742a611a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
