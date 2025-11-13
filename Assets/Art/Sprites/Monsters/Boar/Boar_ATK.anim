@@ -22,11 +22,19 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 3035767217979663167, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
-    - time: 0.125
-      value: {fileID: -8507284983071065133, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
     - time: 0.25
+      value: {fileID: -8507284983071065133, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
+    - time: 0.5
+      value: {fileID: 3035767217979663167, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
+    - time: 0.75
+      value: {fileID: -8507284983071065133, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
+    - time: 1
+      value: {fileID: 3035767217979663167, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
+    - time: 1.125
+      value: {fileID: -8507284983071065133, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
+    - time: 1.25
       value: {fileID: 2728191724694565172, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
-    - time: 0.375
+    - time: 1.375
       value: {fileID: -6543316074681945372, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
     attribute: m_Sprite
     path: 
@@ -52,6 +60,10 @@ AnimationClip:
     pptrCurveMapping:
     - {fileID: 3035767217979663167, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
     - {fileID: -8507284983071065133, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
+    - {fileID: 3035767217979663167, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
+    - {fileID: -8507284983071065133, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
+    - {fileID: 3035767217979663167, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
+    - {fileID: -8507284983071065133, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
     - {fileID: 2728191724694565172, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
     - {fileID: -6543316074681945372, guid: 2c1e8dc38d07df84e91082a16da509ad, type: 3}
   m_AnimationClipSettings:
@@ -59,7 +71,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 1.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -79,14 +91,21 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.125
+  - time: 0.25
+    functionName: DisableHitbox
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1
     functionName: EnableHitBox
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.375
+  - time: 1.375
     functionName: DisableHitbox
     data: 
     objectReferenceParameter: {fileID: 0}
