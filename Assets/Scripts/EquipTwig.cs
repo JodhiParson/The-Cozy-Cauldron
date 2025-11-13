@@ -5,7 +5,7 @@ public class EquipWeapon : MonoBehaviour
     public Animator animator;
     public WeaponDamage weaponDamage; // 👈 reference to WeaponDamage script
 
-    private string[] weaponBools = { "EquipTwig", "EquipWSword", "EquipSSword", "EquipHammer" };
+    private string[] weaponBools = { "EquipTwig", "EquipWSword", "EquipSSword", "EquipHammer", "EquipDSword" };
 
     void Start()
     {
