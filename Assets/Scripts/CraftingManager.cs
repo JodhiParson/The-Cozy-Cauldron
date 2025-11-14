@@ -21,15 +21,15 @@ public class CraftingManager : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            ToggleCraftingUI();
-        }
-    }
+    // void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.F))
+    //     {
+    //         ToggleCraftingUI();
+    //     }
+    // }
 
-    void ToggleCraftingUI()
+    public void ToggleCraftingUI()
     {
         isOpen = !isOpen;
         craftingUI.SetActive(isOpen);
