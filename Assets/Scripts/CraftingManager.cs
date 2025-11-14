@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class CraftingManager : MonoBehaviour
 {
+    public GameObject craftingUI;            // Main crafting UI panel 
     public Transform craftingPanel;          // Parent containing crafting slots
     public GameObject itemUIPrefab;          // UI prefab for items in crafting
-    public GameObject craftingUI;            // Main crafting UI panel
     public GameObject inventoryPanel; //inventory reference
 
     private bool isOpen = false;
