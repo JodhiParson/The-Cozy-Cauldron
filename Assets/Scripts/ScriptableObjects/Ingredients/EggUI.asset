@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Egg
   icon: {fileID: 5163557123177560035, guid: 8b80491a17869ad41a0ad695444d2c7c, type: 3}
   iconTint: {r: 1, g: 1, b: 1, a: 1}
-  iconSize: {x: 64, y: 64}
+  iconSize: {x: 16, y: 16}

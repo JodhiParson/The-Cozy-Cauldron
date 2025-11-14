@@ -82,6 +82,8 @@ public class BossHealth : MonoBehaviour
     
     void InstantiateLoot(GameObject loot)
     {
+        RectTransform rect = loot.GetComponent<RectTransform>();
+        rect.localScale = new Vector2(16, 16);
         if (loot)
         {
             Instantiate(loot, transform.position, Quaternion.identity);

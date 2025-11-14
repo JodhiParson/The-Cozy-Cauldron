@@ -76,7 +76,7 @@ public class CraftingManager : MonoBehaviour
             {
                 Debug.LogWarning("Item has no UIItemData: " + item.name);
             }
-            
+
             for (int i = 0; i < inventoryItems.Count && i < craftingPanel.childCount; i++)
             {
                 Transform slot = craftingPanel.GetChild(i);
@@ -88,8 +88,10 @@ public class CraftingManager : MonoBehaviour
                 Item itemComponent = newItem.GetComponent<Item>();
                 if (itemComponent != null && inventoryItem.uiItemData != null)
                 {
+                    itemComponent.Initialize(inventoryItem.uiItemData);
                     itemComponent.uiItemData = inventoryItem.uiItemData;
                     itemComponent.Name = inventoryItem.uiItemData.itemName;
+                    
                 }
 
                 // Set icon
@@ -102,9 +104,9 @@ public class CraftingManager : MonoBehaviour
 
                 // Fix RectTransform
                 RectTransform rect = newItem.GetComponent<RectTransform>();
-                rect.localScale = Vector3.one;
+                rect.localScale = new Vector2(.15f,.15f);
                 rect.anchoredPosition = Vector2.zero;
-                rect.sizeDelta = new Vector2(14, 14);
+                // rect.sizeDelta = new Vector2(14, 14);
 
                 Debug.Log("Loaded item into crafting UI: " + itemComponent.Name);
             }
