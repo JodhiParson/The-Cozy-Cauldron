@@ -8,8 +8,18 @@ public class CraftingManager : MonoBehaviour
     public Transform craftingPanel;          // Parent containing crafting slots
     public GameObject itemUIPrefab;          // UI prefab for items in crafting
     public GameObject inventoryPanel; //inventory reference
+    public GameObject slotPrefab;
+
 
     private bool isOpen = false;
+
+    void Start()
+    {
+        for (int i = 0; i < 36; i++)
+        {
+            Slot slot = Instantiate(slotPrefab, craftingPanel.transform).GetComponent<Slot>();
+        }
+    }
 
     void Update()
     {
