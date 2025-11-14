@@ -15,7 +15,7 @@ public class PlayerItemCollector : MonoBehaviour
         if (collision.CompareTag("Item"))
     
         {
-            // Debug.Log("Collided with Egg");
+            Debug.Log("Collided with Egg");
             Item item = collision.GetComponent<Item>();
             if (item != null)
             {
