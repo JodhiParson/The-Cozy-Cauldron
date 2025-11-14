@@ -144,7 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c1a8f40d114244eb824199cecedc2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootTable: []
+  lootTable:
+  - itemPrefab: {fileID: 6886792007008887087, guid: 66f15511ef5804345bd74a9d97beeeae, type: 3}
+    dropChance: 0
   maxHealth: 50
   health: 50
   OnHitWithReference:
