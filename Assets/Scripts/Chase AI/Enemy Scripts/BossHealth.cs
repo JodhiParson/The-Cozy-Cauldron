@@ -9,7 +9,7 @@ public class BossHealth : MonoBehaviour
     [Header("Loot")]
     public List<LootItem> lootTable = new List<LootItem>();
     [SerializeField]
-    public int maxHealth, health;
+    public float maxHealth, health;
     public UnityEvent<GameObject> OnHitWithReference, OnDeathWithReference;
 
     [SerializeField]
