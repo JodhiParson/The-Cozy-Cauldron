@@ -362,7 +362,7 @@ MonoBehaviour:
   - itemPrefab: {fileID: 6886792007008887087, guid: 9f04b6f3fdfbad14494f587ba786f7bc, type: 3}
     dropChance: 100
   maxHealth: 400
-  health: 400
+  health: 5
   OnHitWithReference:
     m_PersistentCalls:
       m_Calls: []
