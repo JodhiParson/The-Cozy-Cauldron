@@ -144,9 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c1a8f40d114244eb824199cecedc2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootTable:
-  - itemPrefab: {fileID: 0}
-    dropChance: 0
+  lootTable: []
   maxHealth: 50
   health: 50
   OnHitWithReference:
@@ -177,7 +175,7 @@ MonoBehaviour:
   hitbox: {fileID: 5880634143033372719}
   targetLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   animator: {fileID: 2021047950600742062}
 --- !u!114 &7714287531051734268
 MonoBehaviour:
@@ -233,8 +231,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -588966989
-  m_SortingLayer: 6
+  m_SortingLayerID: 1047654803
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 4763823631524683593, guid: 9dca4c4bf2fa7194eb21ca44b2049fdb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
