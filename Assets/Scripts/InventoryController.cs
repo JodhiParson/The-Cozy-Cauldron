@@ -4,15 +4,25 @@ using UnityEngine.UI;
 
 public class InventoryController : MonoBehaviour
 {
+    public static InventoryController Instance;
     private ItemDictionary itemDictionary;
     public ItemDatabase itemDatabase;
     // private ItemDictionary itemDictionary;
     public GameObject inventoryPanel;
     public GameObject slotPrefab;
     public GameObject itemUIPrefab;
-    
+
     public int slotCount;
     public GameObject[] itemPrefabs;
+
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;  // Assign this object to the static reference
+        else
+            Destroy(gameObject); // Prevent duplicates
+    }
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -90,19 +100,12 @@ public class InventoryController : MonoBehaviour
                 // Instantiate UI item inside the slot
                 GameObject newItem = Instantiate(itemUIPrefab, slotTransform);
 
-                // Assign sprite and color from ScriptableObject
-                Image iconImage = newItem.GetComponentInChildren<Image>();
-                if (iconImage != null)
+                // Get Item component and initialize it with ScriptableObject
+                Item itemComponent = newItem.GetComponent<Item>();
+                if (itemComponent != null)
                 {
-                    iconImage.sprite = data.icon;
-                    iconImage.color = data.iconTint;
+                    itemComponent.Initialize(data); // ✅ Assigns uiItemData, Name, icon, size, etc.
                 }
-
-                // Fix positioning
-                RectTransform rect = newItem.GetComponent<RectTransform>();
-                rect.localScale = Vector3.one;
-                rect.anchoredPosition = Vector2.zero;
-                rect.sizeDelta = data.iconSize;
 
                 slot.currentItem = newItem;
 
@@ -114,112 +117,33 @@ public class InventoryController : MonoBehaviour
         Debug.Log("Inventory Full!");
         return false;
     }
-    // public bool AddItem(UIItemData data)
-    // {
-    //     if (inventoryPanel == null)
-    //     {
-    //         Debug.LogError("Inventory Panel is not assigned in the Inspector!");
-    //         return false;
-    //     }
 
-    //     Debug.Log("Inventory panel has " + inventoryPanel.transform.childCount + " children");
-    //     foreach (Transform slotTransform in inventoryPanel.transform)
-    //     {
-    //         Slot slot = slotTransform.GetComponent<Slot>();
-    //         if (slot != null && slot.currentItem == null)
-    //         {
-    //             // 1️⃣ Instantiate the UI item prefab as a child of the slot
-    //             GameObject newItem = Instantiate(itemUIPrefab, slotTransform);
+    public List<Item> GetInventoryItemsForCrafting()
+    {
+        List<Item> items = new List<Item>();
 
-    //             // 2️⃣ Set icon sprite and color
-    //             Image iconImage = newItem.GetComponentInChildren<Image>();
-    //             iconImage.sprite = data.icon;
-    //             iconImage.color = data.iconTint;
+        foreach (Transform slotTransform in inventoryPanel.transform)
+        {
+            Slot slot = slotTransform.GetComponent<Slot>();
+            if (slot != null && slot.currentItem != null)
+            {
+                Item item = slot.currentItem.GetComponent<Item>();
+                if (item != null)
+                {
+                    if (item.uiItemData != null)
+                    {
+                        Debug.Log("Item has UIItemData: " + item.uiItemData.itemName);
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Item has NO UIItemData: " + item.name);
+                    }
 
-    //             // 3️⃣ Fix positioning and size so it appears in the slot
-    //             RectTransform rect = newItem.GetComponent<RectTransform>();
-    //             rect.localScale = Vector3.one;           // ensure scale is correct
-    //             rect.anchoredPosition = Vector2.zero;    // center in slot
-    //             rect.sizeDelta = data.iconSize;          // optional: use ScriptableObject size
+                    items.Add(item);
+                }
+            }
+        }
 
-    //             // 4️⃣ Mark slot as occupied
-    //             slot.currentItem = newItem;
-
-    //             Debug.Log("Item Added!");
-    //             return true;
-    //         }
-    //     }
-
-    //     Debug.Log("Inventory Full!");
-    //     return false;
-    // }
-    //     foreach (Transform slotTransform in inventoryPanel.transform)
-    //     {
-    //         Debug.Log("Checking slot: " + slotTransform.name); //coment
-    //         Slot slot = slotTransform.GetComponent<Slot>();
-    //         if (slot == null)
-    //         {
-    //             Debug.Log("No Slot script on: " + slotTransform.name);
-    //         }
-    //         else if (slot.currentItem != null)
-    //         {
-    //             Debug.Log("Slot already has item: " + slot.currentItem.name); //coment
-    //         }
-                
-    //         if (slot != null && slot.currentItem == null)
-    //         {
-    //             GameObject newItem = Instantiate(itemUIPrefab, slotTransform);
-                
-    //             // Set icon
-    //             Image iconImage = newItem.GetComponentInChildren<Image>();
-    //             iconImage.sprite = data.icon;
-    //             iconImage.color = data.iconTint;
-
-    //             // Adjust size if defined
-    //             RectTransform rect = newItem.GetComponent<RectTransform>();
-    //             rect.sizeDelta = data.iconSize;
-
-    //             slot.currentItem = newItem;
-    //             Debug.Log("Item Added!?");
-    //             return true;
-    //         }
-    //     }
-
-    //     Debug.Log("Inventory is Full");
-    //     return false;
-    // }
-    // public bool AddItem(GameObject itemPrefab)
-    // {
-    //     foreach (Transform slotTransform in inventoryPanel.transform)
-    //     {
-    //         Slot slot = slotTransform.GetComponent<Slot>();
-    //         if (slot != null && slot.currentItem == null)
-    //         {
-    //             GameObject newItem = Instantiate(itemPrefab, slotTransform);
-    //             newItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-    //             slot.currentItem = newItem;
-    //             return true;
-    //         }
-    //     }
-    //     Debug.Log("Inventory is Full");
-    //     return false;
-    // }
-
-    // //ADD UI ITEMS
-    // public void AddUIItem(UIItemData data)
-    // {
-    //     // create the UI object
-    //     GameObject newItem = Instantiate(itemUIPrefab, inventoryPanel.transform);
-
-    //     // get its image
-    //     Image iconImage = newItem.GetComponentInChildren<Image>();
-    //     iconImage.sprite = data.icon;
-    //     iconImage.color = data.iconTint;
-
-    //     // set size if you want
-    //     RectTransform rect = newItem.GetComponent<RectTransform>();
-    //     rect.sizeDelta = data.iconSize;
-
-    //     // optional: add tooltip or text from data.itemName
-    // }
+        return items;
+    }
 }
