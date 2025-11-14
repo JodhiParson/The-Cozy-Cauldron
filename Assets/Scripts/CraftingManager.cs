@@ -140,6 +140,7 @@ public class CraftingManager : MonoBehaviour
         // Check recipes (unordered match)
         foreach (CraftingRecipe recipe in recipes)
         {
+            Debug.Log(recipe.name);
             if (recipe.ingredients.Count != currentItems.Count)
                 continue;
 
