@@ -133,6 +133,7 @@ public class CraftingManager : MonoBehaviour
             }
 
             Debug.Log("Found ingredient: " + item.uiItemData.itemName);
+
             currentItems.Add(item.uiItemData);
         }
 
