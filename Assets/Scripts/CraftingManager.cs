@@ -4,22 +4,38 @@ using UnityEngine.UI;
 
 public class CraftingManager : MonoBehaviour
 {
+    //UI
     public GameObject craftingUI;            // Main crafting UI panel 
     public Transform craftingPanel;          // Parent containing crafting slots
     public GameObject itemUIPrefab;          // UI prefab for items in crafting
     public GameObject inventoryPanel; //inventory reference
-
+    public GameObject slotPrefab;
     private bool isOpen = false;
 
-    void Update()
+    //Crafting System
+    public Slot[] ingredientSlots; // size = 3 (assigned in inspector)
+    public Slot resultSlot;
+
+    public List<CraftingRecipe> recipes; // assign ScriptableObjects in inspector
+
+    public Button craftButton;
+    void Start()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        for (int i = 0; i < 36; i++)
         {
-            ToggleCraftingUI();
+            Slot slot = Instantiate(slotPrefab, craftingPanel.transform).GetComponent<Slot>();
         }
     }
 
-    void ToggleCraftingUI()
+    // void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.F))
+    //     {
+    //         ToggleCraftingUI();
+    //     }
+    // }
+
+    public void ToggleCraftingUI()
     {
         isOpen = !isOpen;
         craftingUI.SetActive(isOpen);
@@ -40,6 +56,7 @@ public class CraftingManager : MonoBehaviour
         if (inventoryPanel == null)
         {
             Debug.LogError("Inventory Panel is not assigned!");
+            return;
         }
 
         // Clear old items in slots
@@ -51,53 +68,147 @@ public class CraftingManager : MonoBehaviour
             }
         }
 
-        // Get inventory items from InventoryController singleton
+        // Get inventory items
         List<Item> inventoryItems = InventoryController.Instance.GetInventoryItemsForCrafting();
-
-        foreach (Item item in inventoryItems)
+        for (int i = 0; i < inventoryItems.Count && i < craftingPanel.childCount; i++)
         {
-            if (item.uiItemData != null)
+            Transform slot = craftingPanel.GetChild(i);
+            Item inventoryItem = inventoryItems[i];
+
+            if (inventoryItem.uiItemData == null)
             {
-                Debug.Log("Item Name: " + item.uiItemData.itemName);
-                Debug.Log("Icon: " + item.uiItemData.icon);
-                Debug.Log("Icon Size: " + item.uiItemData.iconSize);
+                Debug.LogWarning("Item has no UIItemData: " + inventoryItem.name);
+                continue;
             }
-            else
+
+            // Instantiate UI item
+            GameObject newItem = Instantiate(InventoryController.Instance.itemUIPrefab, slot);
+
+            // Assign properties
+            Item itemComponent = newItem.GetComponent<Item>();
+            if (itemComponent != null)
             {
-                Debug.LogWarning("Item has no UIItemData: " + item.name);
+                itemComponent.Initialize(inventoryItem.uiItemData);
             }
-            
-            for (int i = 0; i < inventoryItems.Count && i < craftingPanel.childCount; i++)
+
+            // Set icon
+            Image icon = newItem.GetComponentInChildren<Image>();
+            if (icon != null)
             {
-                Transform slot = craftingPanel.GetChild(i);
-                Item inventoryItem = inventoryItems[i];
-
-                // Instantiate UI item prefab inside the slot
-                GameObject newItem = Instantiate(InventoryController.Instance.itemUIPrefab, slot);
-
-                Item itemComponent = newItem.GetComponent<Item>();
-                if (itemComponent != null && inventoryItem.uiItemData != null)
-                {
-                    itemComponent.uiItemData = inventoryItem.uiItemData;
-                    itemComponent.Name = inventoryItem.uiItemData.itemName;
-                }
-
-                // Set icon
-                Image icon = newItem.GetComponentInChildren<Image>();
-                if (icon != null && inventoryItem.uiItemData != null)
-                {
-                    icon.sprite = inventoryItem.uiItemData.icon;
-                    icon.color = inventoryItem.uiItemData.iconTint;
-                }
-
-                // Fix RectTransform
-                RectTransform rect = newItem.GetComponent<RectTransform>();
-                rect.localScale = Vector3.one;
-                rect.anchoredPosition = Vector2.zero;
-                rect.sizeDelta = new Vector2(14, 14);
-
-                Debug.Log("Loaded item into crafting UI: " + itemComponent.Name);
+                icon.sprite = inventoryItem.uiItemData.icon;
+                icon.color = inventoryItem.uiItemData.iconTint;
             }
+
+            // Position
+            RectTransform rect = newItem.GetComponent<RectTransform>();
+            rect.localScale = new Vector2(.15f, .15f);
+            rect.anchoredPosition = Vector2.zero;
+
+            Debug.Log("Loaded item into crafting UI: " + inventoryItem.uiItemData.itemName);
         }
+    }
+    public UIItemData CheckForRecipe()
+    {
+        List<UIItemData> currentItems = new List<UIItemData>();
+
+        foreach (Slot s in ingredientSlots)
+        {
+            if (s.currentItem == null)
+            {
+                Debug.Log("Ingredient slot empty!");
+                return null;
+            }
+
+            Item item = s.currentItem.GetComponent<Item>();
+            if (item == null)
+            {
+                Debug.Log("Slot has NO Item component");
+                return null;
+            }
+
+            if (item.uiItemData == null)
+            {
+                Debug.Log("Slot item has NO uiItemData!");
+                return null;
+            }
+
+            Debug.Log("Found ingredient: " + item.uiItemData.itemName);
+            currentItems.Add(item.uiItemData);
+        }
+
+        // Check recipes (unordered match)
+        foreach (CraftingRecipe recipe in recipes)
+        {
+            if (recipe.ingredients.Count != currentItems.Count)
+                continue;
+
+            bool match = true;
+
+            foreach (UIItemData ingredient in recipe.ingredients)
+            {
+                if (!currentItems.Contains(ingredient))
+                {
+                    match = false;
+                    break;
+                }
+            }
+
+            if (match)
+                return recipe.result;
+        }
+
+        return null;
+    }
+    public void UpdateCraftingOutput()
+    {
+        // Clear result slot
+        if (resultSlot.currentItem != null)
+            Destroy(resultSlot.currentItem);
+
+        UIItemData result = CheckForRecipe();
+
+        if (result == null)
+        {
+            craftButton.interactable = false;
+            return;
+        }
+
+        // Instantiate result item (non-clickable)
+        GameObject craftedItem = Instantiate(InventoryController.Instance.itemUIPrefab, resultSlot.transform);
+        Item itemComponent = craftedItem.GetComponent<Item>();
+        itemComponent.Initialize(result);
+
+        resultSlot.currentItem = craftedItem;
+
+        craftButton.interactable = true;
+    }
+    public void CraftItem()
+    {
+        if (resultSlot.currentItem == null)
+            return;
+
+        Item resultItem = resultSlot.currentItem.GetComponent<Item>();
+        if (resultItem == null || resultItem.uiItemData == null)
+            return;
+
+        UIItemData resultData = resultItem.uiItemData;
+
+        // Remove ingredients
+        foreach (Slot s in ingredientSlots)
+        {
+            if (s.currentItem != null)
+                Destroy(s.currentItem);
+
+            s.currentItem = null;
+        }
+
+        // Clear result slot
+        Destroy(resultSlot.currentItem);
+        resultSlot.currentItem = null;
+
+        // Add crafted item to inventory
+        InventoryController.Instance.AddItem(resultData);
+
+        craftButton.interactable = false;
     }
 }
