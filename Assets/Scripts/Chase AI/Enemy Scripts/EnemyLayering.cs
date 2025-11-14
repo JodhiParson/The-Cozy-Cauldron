@@ -2,33 +2,29 @@ using UnityEngine;
 
 public class SpriteDepthSorter : MonoBehaviour
 {
-    private SpriteRenderer bossRenderer;
+    private SpriteRenderer enemyRenderer;
     private SpriteRenderer playerRenderer;
 
     private void Start()
     {
-        // Find player
+        enemyRenderer = GetComponentInChildren<SpriteRenderer>();
+
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
             playerRenderer = player.GetComponentInChildren<SpriteRenderer>();
-
-        // Find boss
-        GameObject boss = GameObject.FindWithTag("Enemy");
-        if (boss != null)
-            bossRenderer = boss.GetComponentInChildren<SpriteRenderer>();
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-        if (!bossRenderer || !playerRenderer)
+        if (!enemyRenderer || !playerRenderer)
             return;
 
         float playerY = playerRenderer.transform.root.position.y;
-        float bossY = bossRenderer.transform.root.position.y;
+        float enemyY = transform.position.y;
 
-        if (playerY < bossY)
-            playerRenderer.sortingOrder = bossRenderer.sortingOrder + 2;
+        if (playerY < enemyY)
+            playerRenderer.sortingOrder = enemyRenderer.sortingOrder + 2;
         else
-            playerRenderer.sortingOrder = bossRenderer.sortingOrder - 2;
+            playerRenderer.sortingOrder = enemyRenderer.sortingOrder - 2;
     }
 }
