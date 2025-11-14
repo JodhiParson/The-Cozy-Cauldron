@@ -8,11 +8,18 @@
 
 // }
 using UnityEngine;
-
+public enum SlotType
+{
+    Inventory,
+    CraftingIngredient,
+    CraftingResult
+}
 public class Slot : MonoBehaviour
 {
+    public SlotType slotType;      // Set this in the inspector
     public GameObject currentItem;
     private CraftingManager craftingManager;
+    
 
     void Awake()
     {
@@ -22,10 +29,13 @@ public class Slot : MonoBehaviour
     // Call this when an item is placed in the slot
     public void SetItem(GameObject item)
     {
-        currentItem = item;
+       currentItem = item;
 
-        if (craftingManager != null)
-            craftingManager.UpdateCraftingOutput();
+        // ONLY crafting ingredient slots trigger craft update
+        if (slotType == SlotType.CraftingIngredient)
+        {
+            craftingManager?.UpdateCraftingOutput();
+        }
     }
 
     // Call this when the item is removed from the slot
@@ -33,7 +43,10 @@ public class Slot : MonoBehaviour
     {
         currentItem = null;
 
-        if (craftingManager != null)
-            craftingManager.UpdateCraftingOutput();
+        // ONLY crafting ingredient slots trigger craft update
+        if (slotType == SlotType.CraftingIngredient)
+        {
+            craftingManager?.UpdateCraftingOutput();
+        }
     }
 }
