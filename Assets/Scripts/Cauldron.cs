@@ -25,8 +25,10 @@ public class CauldronInteraction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        // Debug.Log("entered colider");
+        if (other.CompareTag("PlayerHitbox"))
         {
+            // Debug.Log("playerhitbox entered collider!");
             playerInRange = true;
             interactionText.gameObject.SetActive(true);
         }
@@ -34,8 +36,11 @@ public class CauldronInteraction : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        // Debug.Log("exit colider");
+
+        if (other.CompareTag("PlayerHitbox"))
         {
+            // Debug.Log("exited collider!");
             playerInRange = false;
             interactionText.gameObject.SetActive(false);
 
