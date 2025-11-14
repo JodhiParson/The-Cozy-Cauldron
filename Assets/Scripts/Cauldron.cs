@@ -23,10 +23,10 @@ public class CauldronInteraction : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         // Debug.Log("entered colider");
-        if (other.CompareTag("PlayerHitbox"))
+        if (other.CompareTag("Player"))
         {
             // Debug.Log("playerhitbox entered collider!");
             playerInRange = true;
@@ -34,11 +34,11 @@ public class CauldronInteraction : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         // Debug.Log("exit colider");
 
-        if (other.CompareTag("PlayerHitbox"))
+        if (other.CompareTag("Player"))
         {
             // Debug.Log("exited collider!");
             playerInRange = false;
