@@ -10,7 +10,7 @@ public class CraftingManager : MonoBehaviour
     public GameObject itemUIPrefab;          // UI prefab for items in crafting
     public GameObject inventoryPanel; //inventory reference
     public GameObject slotPrefab;
-    private bool isOpen = false;
+    public bool isOpen = false;
 
     //Crafting System
     public Slot[] ingredientSlots; // size = 3 (assigned in inspector)
