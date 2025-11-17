@@ -342,4 +342,9 @@ public class CraftingManager : MonoBehaviour
         Debug.Log("IngredientSlotChanged!");
         UpdateCraftingOutput();
     }
+    public void CloseCraftingUI()
+    {
+        isOpen = false;
+        craftingUI.SetActive(false);
+    }
 }

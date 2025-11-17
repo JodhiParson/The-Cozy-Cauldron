@@ -30,4 +30,10 @@ public class RecipeManager : MonoBehaviour
             Debug.Log("Recipe UI Closed");
         }
     }
+
+    public void CloseRecipeUI()
+    {
+        isOpen = false;
+        recipeUI.SetActive(false);
+    }
 }
