@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edd693c620345e49abd5fe47cb3ee1a, type: 3}
   m_Name: WSword
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: wood sword
   icon: {fileID: 572054201333511988, guid: f62dd4c364544544282278bfc87a4ea1, type: 3}
   iconTint: {r: 1, g: 1, b: 1, a: 1}
   iconSize: {x: 64, y: 64}
