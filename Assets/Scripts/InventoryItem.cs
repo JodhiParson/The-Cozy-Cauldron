@@ -2,7 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
+
 {
     private Transform originalParent;
     private CanvasGroup canvasGroup;
@@ -126,11 +127,17 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (item == null) return;
+            Debug.Log("onpointerclick activated");
+        
+        if (item == null) {
+            Debug.Log("item ==null");
+            return;
+        }
 
         // Only show button for weapons
         if (item.uiItemData is WeaponData weapon)
         {
+            Debug.Log("item.uiItemData is WeaponData weapon");
             actionButton.gameObject.SetActive(true);
             actionButton.onClick.RemoveAllListeners();
             actionButton.onClick.AddListener(() => weaponDamageController.SetWeaponData(weapon));
