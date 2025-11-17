@@ -361,6 +361,8 @@ MonoBehaviour:
   lootTable:
   - itemPrefab: {fileID: 6886792007008887087, guid: 9f04b6f3fdfbad14494f587ba786f7bc, type: 3}
     dropChance: 100
+  - itemPrefab: {fileID: 6886792007008887087, guid: 5e01006249a41dc4fb9430079226c393, type: 3}
+    dropChance: 40
   maxHealth: 400
   health: 5
   OnHitWithReference:
@@ -402,7 +404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdaef425f59da840ab59be0798b0698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossRenderer: {fileID: 8739108256048317822}
 --- !u!114 &-5670893988492960861
 MonoBehaviour:
   m_ObjectHideFlags: 0
