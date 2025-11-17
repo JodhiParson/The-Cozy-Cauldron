@@ -5,6 +5,7 @@ public class MenuController:MonoBehaviour
 {
     public GameObject menuCanvas;
     public CraftingManager cm;
+    public RecipeManager rm;
     void Start()
     {
         menuCanvas.SetActive(false);
@@ -12,7 +13,7 @@ public class MenuController:MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && cm.isOpen == false)
+        if(Input.GetKeyDown(KeyCode.E) && cm.isOpen == false && rm.isOpen == false)
         {
             menuCanvas.SetActive(!menuCanvas.activeSelf);
         }

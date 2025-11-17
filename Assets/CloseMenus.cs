@@ -10,8 +10,8 @@ public class CloseMenus : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             mc.menuCanvas.SetActive(false);
-            cm.craftingUI.SetActive(false);
-            rm.recipeUI.SetActive(false);        
+            cm.CloseCraftingUI();
+            rm.CloseRecipeUI();        
         }
     }
 }

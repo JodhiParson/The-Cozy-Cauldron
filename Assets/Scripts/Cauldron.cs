@@ -7,6 +7,7 @@ public class CauldronInteraction : MonoBehaviour
     public CraftingManager craftingManager;
     public GameObject interactionText;       // UI text for "Press F to cook!"
     private bool playerInRange = false;
+    public MenuController mc;
 
     void Start()
     {
@@ -16,7 +17,7 @@ public class CauldronInteraction : MonoBehaviour
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.F))
+        if (playerInRange  && Input.GetKeyDown(KeyCode.F))
         {
             // Toggle crafting UI
             craftingManager.ToggleCraftingUI();
