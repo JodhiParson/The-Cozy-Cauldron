@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewWeaponData", menuName = "Combat/Weapon Data")]
-public class WeaponData : ScriptableObject
+public class WeaponData : UIItemData
 {
     [Header("Weapon Stats")]
     public string weaponName;

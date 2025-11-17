@@ -10,6 +10,9 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private Canvas rootCanvas;
     private Slot originalSlot;
     public Vector3 originalScale;
+    public UIItemData uiItemData;
+    public Button actionButton; // assign in inspector
+    public WeaponDamage weaponDamageController;
 
     private void Awake()
     {
@@ -119,81 +122,22 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         rectTransform.anchoredPosition = Vector2.zero;
     }
+    public Item item; // the Item component on this object
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (item == null) return;
+
+        // Only show button for weapons
+        if (item.uiItemData is WeaponData weapon)
+        {
+            actionButton.gameObject.SetActive(true);
+            actionButton.onClick.RemoveAllListeners();
+            actionButton.onClick.AddListener(() => weaponDamageController.SetWeaponData(weapon));
+        }
+        else
+        {
+            actionButton.gameObject.SetActive(false);
+        }
+    }
 }
-
-// using UnityEngine;
-// using UnityEngine.UI;
-// using UnityEngine.EventSystems;
-
-// public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
-// {
-//     Transform originalParent;
-//     CanvasGroup canvas;
-
-
-
-//     private void Awake()
-//     {
-//         canvas = GetComponentInParent<CanvasGroup>();
-//     }
-
-//     public void OnBeginDrag(PointerEventData eventData)
-//     {
-//         originalParent = transform.parent;
-//         transform.SetParent(transform.root);
-//         canvas.blocksRaycasts = false;
-//         canvas.alpha = 0.6f;
-//     }
-
-//     public void OnDrag(PointerEventData eventData)
-//     {
-//         transform.position = eventData.position;
-//     }
-
-//     public void OnEndDrag(PointerEventData eventData)
-//     {
-//         canvas.blocksRaycasts = true;
-//         canvas.alpha = 1f;
-
-//         Slot dropSlot = eventData.pointerEnter?.GetComponent<Slot>();
-//         if (dropSlot == null)
-//         {
-//             GameObject item = eventData.pointerEnter;
-//             if (item !=null)
-//             {
-//                 dropSlot = item.GetComponentInParent<Slot>();
-//             }
-//         }
-//         Slot originalSlot = originalParent?.GetComponent<Slot>();
-
-//         if (dropSlot != null)
-//         {
-//             if (dropSlot.currentItem != null)
-//             {
-//                 dropSlot.currentItem.transform.SetParent(originalSlot.transform);
-//                 originalSlot.currentItem = dropSlot.currentItem;
-//                 dropSlot.currentItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-//             }
-//             else
-//             {
-//                 originalSlot.currentItem = null;
-//             }
-
-//             transform.SetParent(dropSlot.transform);
-//             dropSlot.currentItem = gameObject;
-//         }
-//         else
-//         {
-//             transform.SetParent(originalParent);
-//         }
-
-//         GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-//     }
-//      public void OnPointerClick(PointerEventData eventData)
-//     {
-//         if (eventData.button == PointerEventData.InputButton.Left)
-//         {
-//             // EquipmentManager.instance.Equip(this);
-//         }
-//     }
-// }
