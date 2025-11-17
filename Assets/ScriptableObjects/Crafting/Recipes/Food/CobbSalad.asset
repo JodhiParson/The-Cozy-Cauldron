@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e806c072b2a36404080e2437c993a542, type: 3}
-  m_Name: Bread
+  m_Name: CobbSalad
   m_EditorClassIdentifier: 
   ingredients:
-  - {fileID: 11400000, guid: 9daa3d3fa71d28f49bdd460c8446e8e7, type: 2}
-  - {fileID: 11400000, guid: 9daa3d3fa71d28f49bdd460c8446e8e7, type: 2}
-  - {fileID: 11400000, guid: 9daa3d3fa71d28f49bdd460c8446e8e7, type: 2}
-  result: {fileID: 0}
+  - {fileID: 11400000, guid: e2561533f943b774ca2a96386337f007, type: 2}
+  - {fileID: 11400000, guid: e1e506c488bf7bf4fa6c3f433f454e1b, type: 2}
+  result: {fileID: 11400000, guid: fdb402723f9aa4f4e971509531ae9715, type: 2}

@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edd693c620345e49abd5fe47cb3ee1a, type: 3}
   m_Name: Twig
   m_EditorClassIdentifier: 
+  itemName: 
+  icon: {fileID: 5055330669412280949, guid: 26ac404b4275f6740b12b5aca372679b, type: 3}
+  iconTint: {r: 1, g: 1, b: 1, a: 1}
+  iconSize: {x: 64, y: 64}
   weaponName: Twig
   damage: 5
   equipAnimationBool: EquipTwig

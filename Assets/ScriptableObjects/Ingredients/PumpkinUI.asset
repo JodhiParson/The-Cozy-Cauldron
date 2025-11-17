@@ -9,14 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0edd693c620345e49abd5fe47cb3ee1a, type: 3}
-  m_Name: SSword
+  m_Script: {fileID: 11500000, guid: 6fde55ee5a3750e4b866a3c773fd0e8e, type: 3}
+  m_Name: PumpkinUI
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: -3404592902703918127, guid: 3e6ab270bf565e64389681041edc81f3, type: 3}
+  itemName: Pumpkin
+  icon: {fileID: 4338741059946376814, guid: 0686193397434e1448a3efde96df4ac4, type: 3}
   iconTint: {r: 1, g: 1, b: 1, a: 1}
   iconSize: {x: 64, y: 64}
-  weaponName: Silver Sword
-  damage: 12
-  equipAnimationBool: EquipSSword
-  uiItemData: {fileID: 11400000, guid: c9b3083d9e388df458d1d82b5820b60f, type: 2}

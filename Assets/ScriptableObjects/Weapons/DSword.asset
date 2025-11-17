@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edd693c620345e49abd5fe47cb3ee1a, type: 3}
   m_Name: DSword
   m_EditorClassIdentifier: 
+  itemName: 
+  icon: {fileID: 6567580360060647592, guid: 0d8788edd83649f4aa1f163a9673c8f7, type: 3}
+  iconTint: {r: 1, g: 1, b: 1, a: 1}
+  iconSize: {x: 64, y: 64}
   weaponName: Dual Swords
   damage: 18
   equipAnimationBool: EquipDSword
