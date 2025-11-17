@@ -15,3 +15,4 @@ MonoBehaviour:
   weaponName: Dual Swords
   damage: 18
   equipAnimationBool: EquipDSword
+  uiItemData: {fileID: 11400000, guid: aca635c64c5239347b3e682c31a94398, type: 2}

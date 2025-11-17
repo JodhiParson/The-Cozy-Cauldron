@@ -221,10 +221,12 @@ public class CraftingManager : MonoBehaviour
 
     //     return null;
     // }
+
     public void UpdateCraftingOutput()
     {
         Debug.Log("UpdatingCraftingOutput...");
-        // Clear result slot
+
+        // Clear previous result
         if (resultSlot.currentItem != null)
             Destroy(resultSlot.currentItem);
 
@@ -233,7 +235,6 @@ public class CraftingManager : MonoBehaviour
         if (result == null)
         {
             Debug.Log("result == null");
-
             craftButton.interactable = false;
             return;
         }
@@ -243,10 +244,56 @@ public class CraftingManager : MonoBehaviour
         Item itemComponent = craftedItem.GetComponent<Item>();
         itemComponent.Initialize(result);
 
+        // Set scale
+        RectTransform rect = craftedItem.GetComponent<RectTransform>();
+        rect.localScale = new Vector3(0.15f, 0.15f, 1f);
+        rect.anchoredPosition = Vector2.zero;
+
+        // Disable interaction (remove InventoryItem if it has drag scripts)
+        InventoryItem dragComp = craftedItem.GetComponent<InventoryItem>();
+        if (dragComp != null)
+            Destroy(dragComp); // or dragComp.enabled = false;
+
         resultSlot.currentItem = craftedItem;
 
         craftButton.interactable = true;
     }
+
+    // public void CraftItem()
+    // {
+    //     if (resultSlot.currentItem == null)
+    //     {
+    //         Debug.Log("nothing in resultSlot!");
+    //         return;
+    //     }
+
+    //     Item resultItem = resultSlot.currentItem.GetComponent<Item>();
+    //     if (resultItem == null || resultItem.uiItemData == null)
+    //     {
+    //         Debug.Log("resultItem == null || resultItem.uiItemData == null");
+    //         return;
+
+    //     }
+    //     UIItemData resultData = resultItem.uiItemData;
+
+    //     // Remove ingredients
+    //     foreach (Slot s in ingredientSlots)
+    //     {
+    //         if (s.currentItem != null)
+    //             Destroy(s.currentItem);
+
+    //         s.currentItem = null;
+    //     }
+
+    //     // Clear result slot
+    //     Destroy(resultSlot.currentItem);
+    //     resultSlot.currentItem = null;
+
+    //     // Add crafted item to inventory
+    //     InventoryController.Instance.AddItem(resultData);
+
+    //     craftButton.interactable = false;
+    // }
     public void CraftItem()
     {
         if (resultSlot.currentItem == null)
@@ -260,15 +307,23 @@ public class CraftingManager : MonoBehaviour
         {
             Debug.Log("resultItem == null || resultItem.uiItemData == null");
             return;
-
         }
+
         UIItemData resultData = resultItem.uiItemData;
 
-        // Remove ingredients
+        // Remove ingredients from ingredient slots AND inventory
         foreach (Slot s in ingredientSlots)
         {
             if (s.currentItem != null)
-                Destroy(s.currentItem);
+            {
+                Item ingredientItem = s.currentItem.GetComponent<Item>();
+                if (ingredientItem != null && ingredientItem.uiItemData != null)
+                {
+                    InventoryController.Instance.RemoveItem(ingredientItem.uiItemData);
+                }
+
+                Destroy(s.currentItem); // remove from crafting slot
+            }
 
             s.currentItem = null;
         }

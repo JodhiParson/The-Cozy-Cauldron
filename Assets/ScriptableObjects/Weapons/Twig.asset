@@ -15,3 +15,4 @@ MonoBehaviour:
   weaponName: Twig
   damage: 5
   equipAnimationBool: EquipTwig
+  uiItemData: {fileID: 11400000, guid: 8c3e7ca01a42bce46b3e035740400c3b, type: 2}

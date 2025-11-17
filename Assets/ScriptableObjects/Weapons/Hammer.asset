@@ -15,3 +15,4 @@ MonoBehaviour:
   weaponName: Megaton Hammer
   damage: 22
   equipAnimationBool: EquipHammer
+  uiItemData: {fileID: 11400000, guid: 04820058ba72baf488edae7aa4823628, type: 2}

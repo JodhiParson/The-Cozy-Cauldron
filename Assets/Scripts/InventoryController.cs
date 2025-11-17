@@ -118,6 +118,33 @@ public class InventoryController : MonoBehaviour
         Debug.Log("Inventory Full!");
         return false;
     }
+    public bool RemoveItem(UIItemData data)
+    {
+        if (inventoryPanel == null)
+        {
+            Debug.LogError("Inventory Panel is not assigned!");
+            return false;
+        }
+
+        foreach (Transform slotTransform in inventoryPanel.transform)
+        {
+            Slot slot = slotTransform.GetComponent<Slot>();
+            if (slot != null && slot.currentItem != null)
+            {
+                Item itemComponent = slot.currentItem.GetComponent<Item>();
+                if (itemComponent != null && itemComponent.uiItemData == data)
+                {
+                    Destroy(slot.currentItem);
+                    slot.currentItem = null;
+                    Debug.Log("Removed item from inventory: " + data.itemName);
+                    return true;
+                }
+            }
+        }
+
+        Debug.LogWarning("Item not found in inventory: " + data.itemName);
+        return false;
+    }
 
     public List<Item> GetInventoryItemsForCrafting()
     {
