@@ -137,6 +137,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         // Only show button for weapons
         if (item.uiItemData is WeaponData weapon)
         {
+            Debug.Log(item.uiItemData.itemName);
+
             Debug.Log("item.uiItemData is WeaponData weapon");
             actionButton.gameObject.SetActive(true);
             actionButton.onClick.RemoveAllListeners();
