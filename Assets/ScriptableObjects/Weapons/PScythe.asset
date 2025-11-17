@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edd693c620345e49abd5fe47cb3ee1a, type: 3}
   m_Name: PScythe
   m_EditorClassIdentifier: 
+  itemName: Pumpkin Scythe
+  icon: {fileID: 1599202135406577706, guid: 83c9026eaf767c241b1e7d9128498be1, type: 3}
+  iconTint: {r: 1, g: 1, b: 1, a: 1}
+  iconSize: {x: 64, y: 64}
   weaponName: Pumpkin Scythe
   damage: 16
   equipAnimationBool: EquipPScythe
+  uiItemData: {fileID: 11400000, guid: 212e83d340a4ce645be1398742e33b61, type: 2}

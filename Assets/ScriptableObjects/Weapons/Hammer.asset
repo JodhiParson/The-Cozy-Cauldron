@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edd693c620345e49abd5fe47cb3ee1a, type: 3}
   m_Name: Hammer
   m_EditorClassIdentifier: 
+  itemName: 
+  icon: {fileID: -8766102748999252140, guid: f079624d832a1604dadc849eb06bebb7, type: 3}
+  iconTint: {r: 1, g: 1, b: 1, a: 1}
+  iconSize: {x: 64, y: 64}
   weaponName: Megaton Hammer
   damage: 22
   equipAnimationBool: EquipHammer
