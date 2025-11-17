@@ -15,7 +15,7 @@ public class WeaponDamage : MonoBehaviour
 
     private List<Collider2D> hitboxColliders = new List<Collider2D>();
 
-    private void Awake()
+    private void Start()
     {
         if (hitboxes.Count == 0)
         {

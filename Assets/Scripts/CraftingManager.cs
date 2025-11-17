@@ -56,7 +56,7 @@ public class CraftingManager : MonoBehaviour
         }
     }
 
-    void LoadInventoryIntoCraftingUI()
+    public void LoadInventoryIntoCraftingUI()
     {
         if (inventoryPanel == null)
         {

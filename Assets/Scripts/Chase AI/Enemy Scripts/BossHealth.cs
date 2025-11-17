@@ -35,28 +35,26 @@ public class BossHealth : MonoBehaviour
         healthBar.value = health;
     }
     public void TakeDamage(int amount, GameObject sender)
+{
+    if (isDead)
+        return;    // prevents double death
+
+    if (sender.layer == gameObject.layer)
+        return;
+
+    health -= amount;
+
+    if (health > 0)
     {
-        if (isDead)
-            return;
-        if (sender.layer == gameObject.layer)
-            return;
-
-        Debug.Log("took damage!");
-        health -= amount;
-        Debug.Log("hp" + health);
-
-
-        if (health > 0)
-        {
-            OnHitWithReference?.Invoke(sender);
-        }
-        else
-        {
-            OnDeathWithReference?.Invoke(sender);
-            isDead = true;
-            StartCoroutine(HandleDeath());
-        }
+        OnHitWithReference?.Invoke(sender);
     }
+    else
+    {
+        isDead = true;   // <-- move this here
+        OnDeathWithReference?.Invoke(sender);
+        StartCoroutine(HandleDeath());
+    }
+}
 
     private IEnumerator HandleDeath()
     {
@@ -73,20 +71,24 @@ public class BossHealth : MonoBehaviour
             if (Random.Range(0f, 100f) <= lootItem.dropChance)
             {
                 InstantiateLoot(lootItem.itemPrefab);
-                break; // ✅ only stop once something drops
             }
 
         }
         Destroy(gameObject);
     }
     
-    void InstantiateLoot(GameObject loot)
+void InstantiateLoot(GameObject lootPrefab)
+{
+    if (lootPrefab)
     {
-        RectTransform rect = loot.GetComponent<RectTransform>();
-        rect.localScale = new Vector2(16, 16);
-        if (loot)
+        GameObject drop = Instantiate(lootPrefab, transform.position, Quaternion.identity);
+
+        RectTransform rect = drop.GetComponent<RectTransform>();
+        if (rect != null)
         {
-            Instantiate(loot, transform.position, Quaternion.identity);
+            rect.localScale = new Vector2(16, 16);
         }
     }
+}
+
 }
