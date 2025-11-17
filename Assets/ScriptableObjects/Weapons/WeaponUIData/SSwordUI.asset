@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SSwordUI
   m_EditorClassIdentifier: 
   itemName: Silver Sword
-  icon: {fileID: 4561306490478884215, guid: bc438ac0bea34b345b9d71bf0c150a87, type: 3}
+  icon: {fileID: -3404592902703918127, guid: 3e6ab270bf565e64389681041edc81f3, type: 3}
   iconTint: {r: 1, g: 1, b: 1, a: 1}
   iconSize: {x: 64, y: 64}
