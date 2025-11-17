@@ -15,7 +15,8 @@ public enum SlotType
     Inventory,
     CraftingInventory,
     CraftingIngredient,
-    CraftingResult
+    CraftingResult,
+    EquipmentWeapon
 }
 public class Slot : MonoBehaviour
 {
