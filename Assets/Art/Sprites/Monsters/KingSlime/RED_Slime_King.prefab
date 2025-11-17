@@ -128,7 +128,7 @@ MonoBehaviour:
   - itemPrefab: {fileID: 6886792007008887087, guid: 6efa4037ee4867d48a44074b432bbbda, type: 3}
     dropChance: 100
   - itemPrefab: {fileID: 6886792007008887087, guid: 0ab9f7960d57305409c4f6b44384c0c4, type: 3}
-    dropChance: 30
+    dropChance: 40
   maxHealth: 250
   health: 250
   OnHitWithReference:
