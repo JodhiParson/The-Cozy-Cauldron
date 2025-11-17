@@ -128,7 +128,7 @@ MonoBehaviour:
   - itemPrefab: {fileID: 6886792007008887087, guid: 6efa4037ee4867d48a44074b432bbbda, type: 3}
     dropChance: 100
   - itemPrefab: {fileID: 6886792007008887087, guid: 0ab9f7960d57305409c4f6b44384c0c4, type: 3}
-    dropChance: 30
+    dropChance: 100
   maxHealth: 250
   health: 250
   OnHitWithReference:
@@ -139,7 +139,7 @@ MonoBehaviour:
       m_Calls: []
   isDead: 0
   healthBar: {fileID: 3727579262990279397}
-  animator: {fileID: 0}
+  animator: {fileID: 8463754366137882288}
 --- !u!212 &8058822609688470014
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1047654803
   m_SortingLayer: 8
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2125276367546041190, guid: db6a77fd5c678d245b39a20e2e755163, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -278,7 +278,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.01094085, y: -0.08176488}
+  m_Offset: {x: -0.01993157, y: -0.08176488}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -288,7 +288,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.27431816, y: 0.12624955}
+  m_Size: {x: 0.336063, y: 0.12624955}
   m_EdgeRadius: 0
 --- !u!61 &8168093692080506786
 BoxCollider2D:
