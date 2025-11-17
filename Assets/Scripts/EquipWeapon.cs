@@ -4,6 +4,7 @@ public class EquipWeapon : MonoBehaviour
 {
     public Animator animator;
     public WeaponDamage weaponDamage; // 👈 reference to WeaponDamage script
+    public Slot WeaponSlot;
 
     private string[] weaponBools = { "EquipTwig", "EquipWSword", "EquipSSword", "EquipHammer", "EquipDSword", "EquipPScythe" };
 
@@ -35,5 +36,7 @@ public class EquipWeapon : MonoBehaviour
             weaponDamage.SetWeaponData(weaponData);
 
         Debug.Log($"Equipped {weaponData.weaponName} (Damage: {weaponData.damage})");
+        
+        
     }
 }

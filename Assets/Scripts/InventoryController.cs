@@ -85,39 +85,80 @@ public class InventoryController : MonoBehaviour
         }
     }
     // Adds a UI item to the first empty slot
-    public bool AddItem(UIItemData data)
+    // public bool AddItem(UIItemData data)
+    // {
+    //     if (inventoryPanel == null)
+    //     {
+    //         Debug.LogError("Inventory Panel is not assigned!");
+    //         return false;
+    //     }
+
+    //     foreach (Transform slotTransform in inventoryPanel.transform)
+    //     {
+    //         Slot slot = slotTransform.GetComponent<Slot>();
+    //         if (slot != null && slot.currentItem == null)
+    //         {
+    //             // Instantiate UI item inside the slot
+    //             GameObject newItem = Instantiate(itemUIPrefab, slotTransform);
+
+    //             // Get Item component and initialize it with ScriptableObject
+    //             Item itemComponent = newItem.GetComponent<Item>();
+    //             if (itemComponent != null)
+    //             {
+    //                 itemComponent.Initialize(data); // ✅ Assigns uiItemData, Name, icon, size, etc.
+    //             }
+
+    //             slot.currentItem = newItem;
+
+    //             Debug.Log("Added item to inventory: " + data.itemName);
+    //             return true;
+    //         }
+    //     }
+
+    //     Debug.Log("Inventory Full!");
+    //     return false;
+    // }
+    public bool AddItem(UIItemData data, WeaponData weaponData = null)
+{
+    if (inventoryPanel == null)
     {
-        if (inventoryPanel == null)
-        {
-            Debug.LogError("Inventory Panel is not assigned!");
-            return false;
-        }
-
-        foreach (Transform slotTransform in inventoryPanel.transform)
-        {
-            Slot slot = slotTransform.GetComponent<Slot>();
-            if (slot != null && slot.currentItem == null)
-            {
-                // Instantiate UI item inside the slot
-                GameObject newItem = Instantiate(itemUIPrefab, slotTransform);
-
-                // Get Item component and initialize it with ScriptableObject
-                Item itemComponent = newItem.GetComponent<Item>();
-                if (itemComponent != null)
-                {
-                    itemComponent.Initialize(data); // ✅ Assigns uiItemData, Name, icon, size, etc.
-                }
-
-                slot.currentItem = newItem;
-
-                Debug.Log("Added item to inventory: " + data.itemName);
-                return true;
-            }
-        }
-
-        Debug.Log("Inventory Full!");
+        Debug.LogError("Inventory Panel is not assigned!");
         return false;
     }
+
+    foreach (Transform slotTransform in inventoryPanel.transform)
+    {
+        Slot slot = slotTransform.GetComponent<Slot>();
+        if (slot != null && slot.currentItem == null)
+        {
+            GameObject newItem = Instantiate(itemUIPrefab, slotTransform);
+            Item itemComponent = newItem.GetComponent<Item>();
+            if (itemComponent != null)
+            {
+                itemComponent.Initialize(data);
+                if (weaponData != null)
+                {
+                    itemComponent.weaponData = weaponData;
+                }
+            }
+
+             InventoryItem inventoryItemComponent = newItem.GetComponent<InventoryItem>();
+            if (inventoryItemComponent != null)
+            {
+                inventoryItemComponent.equipWeaponController = FindFirstObjectByType<EquipWeapon>();
+                // Optional: assign weapon damage controller if needed
+                inventoryItemComponent.weaponDamageController = FindFirstObjectByType<WeaponDamage>();
+            }
+
+            slot.currentItem = newItem;
+            Debug.Log("Added item to inventory: " + data.itemName);
+            return true;
+        }
+    }
+
+    Debug.Log("Inventory Full!");
+    return false;
+}
     public bool RemoveItem(UIItemData data)
     {
         if (inventoryPanel == null)
