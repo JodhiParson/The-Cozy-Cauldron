@@ -30,8 +30,4 @@ public class RecipeManager : MonoBehaviour
             Debug.Log("Recipe UI Closed");
         }
     }
-    void LoadRecipes()
-    {
-         
-    }
 }
