@@ -25,6 +25,11 @@ public class CraftingManager : MonoBehaviour
         {
             Slot slot = Instantiate(slotPrefab, craftingPanel.transform).GetComponent<Slot>();
         }
+
+        foreach (Slot slot in ingredientSlots)
+        {
+            slot.OnItemDropped += IngredientSlotChanged;
+        }
     }
 
     // void Update()
@@ -105,6 +110,7 @@ public class CraftingManager : MonoBehaviour
             rect.anchoredPosition = Vector2.zero;
 
             Debug.Log("Loaded item into crafting UI: " + inventoryItem.uiItemData.itemName);
+
         }
     }
     public UIItemData CheckForRecipe()
@@ -115,37 +121,37 @@ public class CraftingManager : MonoBehaviour
         {
             if (s.currentItem == null)
             {
-                Debug.Log("Ingredient slot empty!");
-                return null;
+                // Just skip empty slots instead of returning
+                continue;
             }
 
             Item item = s.currentItem.GetComponent<Item>();
             if (item == null)
             {
                 Debug.Log("Slot has NO Item component");
-                return null;
+                continue; // skip invalid slot
             }
 
             if (item.uiItemData == null)
             {
                 Debug.Log("Slot item has NO uiItemData!");
-                return null;
+                continue; // skip invalid item
             }
 
             Debug.Log("Found ingredient: " + item.uiItemData.itemName);
-
             currentItems.Add(item.uiItemData);
         }
+
+        if (currentItems.Count == 0)
+            return null; // no ingredients at all
 
         // Check recipes (unordered match)
         foreach (CraftingRecipe recipe in recipes)
         {
-            Debug.Log(recipe.name);
             if (recipe.ingredients.Count != currentItems.Count)
                 continue;
 
             bool match = true;
-
             foreach (UIItemData ingredient in recipe.ingredients)
             {
                 if (!currentItems.Contains(ingredient))
@@ -161,8 +167,63 @@ public class CraftingManager : MonoBehaviour
 
         return null;
     }
+    // public UIItemData CheckForRecipe()
+    // {
+    //     List<UIItemData> currentItems = new List<UIItemData>();
+
+    //     foreach (Slot s in ingredientSlots)
+    //     {
+    //         if (s.currentItem == null)
+    //         {
+    //             Debug.Log("Ingredient slot empty!");
+    //             return null;
+    //         }
+
+    //         Item item = s.currentItem.GetComponent<Item>();
+    //         if (item == null)
+    //         {
+    //             Debug.Log("Slot has NO Item component");
+    //             return null;
+    //         }
+
+    //         if (item.uiItemData == null)
+    //         {
+    //             Debug.Log("Slot item has NO uiItemData!");
+    //             return null;
+    //         }
+
+    //         Debug.Log("Found ingredient: " + item.uiItemData.itemName);
+
+    //         currentItems.Add(item.uiItemData);
+    //     }
+
+    //     // Check recipes (unordered match)
+    //     foreach (CraftingRecipe recipe in recipes)
+    //     {
+    //         Debug.Log(recipe.name);
+    //         if (recipe.ingredients.Count != currentItems.Count)
+    //             continue;
+
+    //         bool match = true;
+
+    //         foreach (UIItemData ingredient in recipe.ingredients)
+    //         {
+    //             if (!currentItems.Contains(ingredient))
+    //             {
+    //                 match = false;
+    //                 break;
+    //             }
+    //         }
+
+    //         if (match)
+    //             return recipe.result;
+    //     }
+
+    //     return null;
+    // }
     public void UpdateCraftingOutput()
     {
+        Debug.Log("UpdatingCraftingOutput...");
         // Clear result slot
         if (resultSlot.currentItem != null)
             Destroy(resultSlot.currentItem);
@@ -171,6 +232,8 @@ public class CraftingManager : MonoBehaviour
 
         if (result == null)
         {
+            Debug.Log("result == null");
+
             craftButton.interactable = false;
             return;
         }
@@ -187,12 +250,18 @@ public class CraftingManager : MonoBehaviour
     public void CraftItem()
     {
         if (resultSlot.currentItem == null)
+        {
+            Debug.Log("nothing in resultSlot!");
             return;
+        }
 
         Item resultItem = resultSlot.currentItem.GetComponent<Item>();
         if (resultItem == null || resultItem.uiItemData == null)
+        {
+            Debug.Log("resultItem == null || resultItem.uiItemData == null");
             return;
 
+        }
         UIItemData resultData = resultItem.uiItemData;
 
         // Remove ingredients
@@ -212,5 +281,10 @@ public class CraftingManager : MonoBehaviour
         InventoryController.Instance.AddItem(resultData);
 
         craftButton.interactable = false;
+    }
+    private void IngredientSlotChanged(object sender, OnItemDroppedEventArgs e)
+    {
+        Debug.Log("IngredientSlotChanged!");
+        UpdateCraftingOutput();
     }
 }
