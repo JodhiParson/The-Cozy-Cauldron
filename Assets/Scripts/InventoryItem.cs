@@ -15,6 +15,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public Button actionButton; // assign in inspector
     public WeaponDamage weaponDamageController;
     public PlayerEquipment playerEquipment;
+    public EquipWeapon equipWeaponController;
 
     private void Awake()
     {
@@ -132,17 +133,48 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     }
     public Item item; // the Item component on this object
 
+    // public void OnPointerClick(PointerEventData eventData)
+    // {
+
+    //     Debug.Log($"[CLICK] Item clicked: {item.Name}");
+
+    //     // Check if this item is the twig
+    //     if (item.uiItemData.itemName.ToLower() == "twig" || item.uiItemData.itemName.ToLower() == "wood sword" || item.uiItemData.itemName.ToLower() == "silver sword" || item.uiItemData.itemName.ToLower() == "pumpkin scythe" || item.uiItemData.itemName.ToLower() == "dual swords" || item.uiItemData.itemName.ToLower() == "hammer")
+    //     {
+    //         Debug.Log($"A WEAPON HAS BEEN CLICKED");
+
+    //         if (equipWeaponController != null)
+    //         {
+    //             equipWeaponController.Equip(item.weaponData); // <-- call Equip here
+    //         }
+    //         else
+    //         {
+    //             Debug.LogWarning("EquipWeapon controller not assigned!");
+    //         }
+    //     }
+
+    // }
     public void OnPointerClick(PointerEventData eventData)
     {
-
-        Debug.Log($"[CLICK] Item clicked: {item.Name}");
-
-        // Check if this item is the twig
-        if (item.uiItemData.itemName.ToLower() == "twig" || item.uiItemData.itemName.ToLower() == "wood sword" || item.uiItemData.itemName.ToLower() == "silver sword" || item.uiItemData.itemName.ToLower() == "pumpkin scythe" || item.uiItemData.itemName.ToLower() == "dual swords" || item.uiItemData.itemName.ToLower() == "hammer")
+        if (item == null)
         {
-             Debug.Log($"A WEAPON HAS BEEN CLICKED");
+            Debug.LogWarning("[CLICK] Item is null!");
+            return;
         }
 
+        Debug.Log($"[CLICK] Item clicked: {item.Name}");
+        string itemNameLower = item.uiItemData.itemName.ToLower();
+
+        // Directly equip the weapon if it's a known weapon
+        if (itemNameLower == "twig" || itemNameLower == "wood sword" || itemNameLower == "silver sword" ||
+            itemNameLower == "pumpkin scythe" || itemNameLower == "dual swords" || itemNameLower == "hammer")
+        {
+            Debug.Log($"[CLICK] Equipping weapon: {item.uiItemData.itemName}");
+
+
+            equipWeaponController.Equip(item.weaponData); // Equip the weapon
+
+        }
     }
     void EquipToSlot(Slot equipSlot)
     {
