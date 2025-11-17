@@ -8,6 +8,8 @@
 
 // }
 using UnityEngine;
+using System;
+using UnityEngine.EventSystems;
 public enum SlotType
 {
     Inventory,
@@ -18,8 +20,10 @@ public class Slot : MonoBehaviour
 {
     public SlotType slotType;      // Set this in the inspector
     public GameObject currentItem;
+    public event EventHandler<OnItemDroppedEventArgs> OnItemDropped;
     private CraftingManager craftingManager;
-    
+    public Vector3 itemScale = Vector3.one; // default for inventory slots
+
 
     void Awake()
     {
@@ -29,12 +33,17 @@ public class Slot : MonoBehaviour
     // Call this when an item is placed in the slot
     public void SetItem(GameObject item)
     {
-       currentItem = item;
+        currentItem = item;
+         // Make it a child of this slot
+        item.transform.SetParent(transform);
+        item.transform.localPosition = Vector3.zero;
+        item.transform.localScale = itemScale;   // use the slot’s scale
 
         // ONLY crafting ingredient slots trigger craft update
         if (slotType == SlotType.CraftingIngredient)
         {
-            craftingManager?.UpdateCraftingOutput();
+            OnItemDropped?.Invoke(this, new OnItemDroppedEventArgs(item));
+            
         }
     }
 
@@ -46,7 +55,17 @@ public class Slot : MonoBehaviour
         // ONLY crafting ingredient slots trigger craft update
         if (slotType == SlotType.CraftingIngredient)
         {
-            craftingManager?.UpdateCraftingOutput();
+            OnItemDropped?.Invoke(this, new OnItemDroppedEventArgs(null));
         }
+    }
+    
+}
+public class OnItemDroppedEventArgs : EventArgs
+{
+    public GameObject item;
+
+    public OnItemDroppedEventArgs(GameObject item)
+    {
+        this.item = item;
     }
 }
