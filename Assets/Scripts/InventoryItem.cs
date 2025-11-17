@@ -14,6 +14,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public UIItemData uiItemData;
     public Button actionButton; // assign in inspector
     public WeaponDamage weaponDamageController;
+    public PlayerEquipment playerEquipment;
 
     private void Awake()
     {
