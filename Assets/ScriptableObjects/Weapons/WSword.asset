@@ -15,3 +15,4 @@ MonoBehaviour:
   weaponName: Wood Sword
   damage: 7
   equipAnimationBool: EquipWSword
+  uiItemData: {fileID: 11400000, guid: d963437e845934b48aef9da925367599, type: 2}

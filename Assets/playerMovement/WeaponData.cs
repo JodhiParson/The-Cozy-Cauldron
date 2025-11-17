@@ -7,4 +7,7 @@ public class WeaponData : ScriptableObject
     public string weaponName;
     public int damage;
     public string equipAnimationBool;
+
+    [Header("UI Representation")]
+    public UIItemData uiItemData; // assign a UIItemData ScriptableObject in inspector
 }

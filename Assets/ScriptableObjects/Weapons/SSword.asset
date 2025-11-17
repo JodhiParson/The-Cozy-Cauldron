@@ -15,3 +15,4 @@ MonoBehaviour:
   weaponName: Silver Sword
   damage: 12
   equipAnimationBool: EquipSSword
+  uiItemData: {fileID: 11400000, guid: c9b3083d9e388df458d1d82b5820b60f, type: 2}

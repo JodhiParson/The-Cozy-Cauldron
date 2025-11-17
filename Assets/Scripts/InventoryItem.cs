@@ -9,6 +9,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private RectTransform rectTransform;
     private Canvas rootCanvas;
     private Slot originalSlot;
+    public Vector3 originalScale;
 
     private void Awake()
     {
@@ -48,35 +49,73 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
 
         // Slot originalSlot = originalParent.GetComponent<Slot>();
-
         if (dropSlot != null)
         {
-            Debug.Log("dropSlot != null, moving!");
             if (dropSlot.currentItem != null)
             {
+                // Swap items visually
                 GameObject existing = dropSlot.currentItem;
-                dropSlot.SetItem(gameObject);             // triggers event
-                existing.transform.SetParent(originalSlot.transform);
-                // existing.GetComponent<RectTransform>().localPosition = Vector3.zero;
-                originalSlot.SetItem(existing);           // triggers event
+
+                // Move existing item to original slot
+                existing.transform.SetParent(originalSlot.transform, false);
+                existing.transform.localPosition = Vector3.zero;
+                existing.transform.localScale = existing.GetComponent<InventoryItem>().originalScale;
+                originalSlot.SetItem(existing);  // triggers event
+
+                // Move dragged item to drop slot
+                rectTransform.SetParent(dropSlot.transform, false);
+                rectTransform.localPosition = Vector3.zero;
+                rectTransform.localScale = GetComponent<InventoryItem>().originalScale;
+                dropSlot.SetItem(gameObject);  // triggers event
             }
             else
             {
-                dropSlot.SetItem(gameObject);             // triggers event
-                originalSlot.ClearItem();                 // triggers event
-            }
+                // Drop into empty slot
+                rectTransform.SetParent(dropSlot.transform, false);
+                rectTransform.localPosition = Vector3.zero;
+                rectTransform.localScale = GetComponent<InventoryItem>().originalScale;
 
-            rectTransform.SetParent(dropSlot.transform);
-            rectTransform.localPosition = Vector3.zero;
-            rectTransform.localScale = Vector2.one;
+                dropSlot.SetItem(gameObject);   // triggers event
+                originalSlot.ClearItem();        // triggers event
+            }
         }
         else
         {
-            rectTransform.SetParent(originalSlot.transform);
+            // Return to original slot
+            rectTransform.SetParent(originalSlot.transform, false);
             rectTransform.localPosition = Vector3.zero;
-            rectTransform.localScale = Vector3.one;
-            originalSlot.SetItem(gameObject);             // triggers event
+            rectTransform.localScale = GetComponent<InventoryItem>().originalScale;
+            originalSlot.SetItem(gameObject);   // triggers event
         }
+        // if (dropSlot != null)
+        // {
+        //     Debug.Log("dropSlot != null, moving!");
+        //     if (dropSlot.currentItem != null)
+        //     {
+        //         GameObject existing = dropSlot.currentItem;
+        //         dropSlot.SetItem(gameObject);             // triggers event
+        //         existing.transform.SetParent(originalSlot.transform);
+        //         existing.GetComponent<RectTransform>().localPosition = new Vector3(.15f,.15f,1);
+        //         existing.GetComponent<RectTransform>().anchoredPosition = new Vector2(.15f,.15f);
+        //         // originalSlot.SetItem(existing);           // triggers event
+        //     }
+        //     else
+        //     {
+        //         dropSlot.SetItem(gameObject);             // triggers event
+        //         originalSlot.ClearItem();                 // triggers event
+        //     }
+
+        //     rectTransform.SetParent(dropSlot.transform);
+        //     // rectTransform.localPosition = Vector3.zero;
+        //     // rectTransform.localScale = Vector2.one;
+        // }
+        // else
+        // {
+        //     rectTransform.SetParent(originalSlot.transform);
+        //     rectTransform.localPosition = Vector3.zero;
+        //     rectTransform.localScale = Vector3.one;
+        //     originalSlot.SetItem(gameObject);             // triggers event
+        // }
 
         rectTransform.anchoredPosition = Vector2.zero;
     }
