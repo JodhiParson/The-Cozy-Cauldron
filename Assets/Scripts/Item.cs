@@ -5,6 +5,7 @@ public class Item : MonoBehaviour
 {
     public int ID;
     public UIItemData uiItemData; // 💡 link the ScriptableObject here
+    public WeaponData weaponData;
     public string Name;
     public virtual void PickUp()
     {
@@ -15,9 +16,10 @@ public class Item : MonoBehaviour
         }
 
     }
-    public void Initialize(UIItemData data)
+    public void Initialize(UIItemData data, WeaponData wData = null)
     {
         uiItemData = data;
+        weaponData = wData;
         Name = data.itemName;
 
         // Apply icon immediately

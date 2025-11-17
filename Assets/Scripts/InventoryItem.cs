@@ -21,6 +21,12 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         canvasGroup = GetComponent<CanvasGroup>();
         rectTransform = GetComponent<RectTransform>();
         rootCanvas = GetComponentInParent<Canvas>(); // top-level Canvas
+
+        item = GetComponent<Item>();   // <-- ADD THIS
+        if (item == null)
+            Debug.LogError("[INIT] No Item component found on InventoryItem object!");
+        else
+            Debug.Log("[INIT] Item component successfully linked.");
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -128,26 +134,48 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnPointerClick(PointerEventData eventData)
     {
-            Debug.Log("onpointerclick activated");
-        
-        if (item == null) {
-            Debug.Log("item ==null");
+        if (item == null)
+        {
+            Debug.LogWarning("[CLICK] item == null (NO Item script attached!)");
             return;
         }
 
-        // Only show button for weapons
-        if (item.uiItemData is WeaponData weapon)
-        {
-            Debug.Log(item.uiItemData.itemName);
+        Debug.Log($"[CLICK] Item clicked: {item.Name}");
 
-            Debug.Log("item.uiItemData is WeaponData weapon");
-            actionButton.gameObject.SetActive(true);
-            actionButton.onClick.RemoveAllListeners();
-            actionButton.onClick.AddListener(() => weaponDamageController.SetWeaponData(weapon));
+        if (item.weaponData != null)
+        {
+            Debug.Log($"[CLICK] This is a weapon: {item.weaponData.weaponName}");
+            weaponDamageController.SetWeaponData(item.weaponData);
         }
         else
         {
-            actionButton.gameObject.SetActive(false);
+            Debug.Log("[CLICK] This item is not a weapon.");
         }
     }
+    void EquipToSlot(Slot equipSlot)
+    {
+        // Move item to equipment slot
+        transform.SetParent(equipSlot.transform, false);
+        transform.localPosition = Vector3.zero;
+        equipSlot.SetItem(gameObject);
+
+        // Clear original inventory slot
+        originalSlot.ClearItem();
+    }
+
+    void SwapWithEquipSlot(Slot equipSlot)
+    {
+        GameObject equippedItem = equipSlot.currentItem;
+
+        // Move equipped item back to inventory
+        equippedItem.transform.SetParent(originalSlot.transform, false);
+        equippedItem.transform.localPosition = Vector3.zero;
+        originalSlot.SetItem(equippedItem);
+
+        // Move clicked item to equipment slot
+        transform.SetParent(equipSlot.transform, false);
+        transform.localPosition = Vector3.zero;
+        equipSlot.SetItem(gameObject);
+    }
+
 }
