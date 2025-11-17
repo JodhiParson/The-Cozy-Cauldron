@@ -134,23 +134,15 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (item == null)
-        {
-            Debug.LogWarning("[CLICK] item == null (NO Item script attached!)");
-            return;
-        }
 
         Debug.Log($"[CLICK] Item clicked: {item.Name}");
 
-        if (item.weaponData != null)
+        // Check if this item is the twig
+        if (item.uiItemData.itemName.ToLower() == "twig" || item.uiItemData.itemName.ToLower() == "wood sword" || item.uiItemData.itemName.ToLower() == "silver sword" || item.uiItemData.itemName.ToLower() == "pumpkin scythe" || item.uiItemData.itemName.ToLower() == "dual swords" || item.uiItemData.itemName.ToLower() == "hammer")
         {
-            Debug.Log($"[CLICK] This is a weapon: {item.weaponData.weaponName}");
-            weaponDamageController.SetWeaponData(item.weaponData);
+             Debug.Log($"A WEAPON HAS BEEN CLICKED");
         }
-        else
-        {
-            Debug.Log("[CLICK] This item is not a weapon.");
-        }
+
     }
     void EquipToSlot(Slot equipSlot)
     {
